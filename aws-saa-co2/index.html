@@ -27,6 +27,7 @@
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             var Quiz = JSON.parse(this.responseText);
+            return Quiz
         }
     };
     xmlhttp.open("GET", "quiz.json", true);
