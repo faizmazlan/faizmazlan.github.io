@@ -244,6 +244,7 @@ jQuery(document).ready(function ($) {
         });
         $(document.createElement('button')).addClass('btn btn-block').addClass('btn-primary').attr('id', 'ButtonStart').text('Start Over').appendTo('#QuizStartCol12');
         $('#ButtonStart').on('click', function () {
+            localStorage.clear();
             window.location.reload();
         });
         $(document.createElement('hr')).addClass('mb-4').appendTo('#QuizContent');
@@ -293,7 +294,6 @@ jQuery(document).ready(function ($) {
 	}
 
     function initQuiz(){
-        localStorage.clear();
 
         $.getJSON( "quiz.json", {} )
         .done(function( result ) {
