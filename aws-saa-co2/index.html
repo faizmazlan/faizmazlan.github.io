@@ -23,16 +23,17 @@
 
     <!-- JS quiz variables - start -->
 <script>
-    var Quiz;
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            Quiz = JSON.parse(this.responseText);
+            var data = JSON.parse(this.responseText);
         }
+        return data
     };
     xmlhttp.open("GET", "quiz.json", true);
     xmlhttp.send();
 
+    var Quiz = xmlhttp.onreadystatechange;
     var QuizCode = Quiz.QuizCode;
     var QuizTitle = Quiz.QuizTitle;
     var QuizDescription = Quiz.QuizDescription;
