@@ -23,89 +23,24 @@
 
     <!-- JS quiz variables - start -->
 <script>
-var QuizTitle = "Exam Practice ( SAA-C02 )" ;
-var QuizDescription = "AWS Certified Solutions Architect Associate" ;
-var QuizQuestions = [
-   {
-      "question":"A solutions architect is designing a solution where users will be directed to a backup static error page if the primary website is unavailable. The primary website’s DNS records are hosted in Amazon Route 53 where their domain is pointing to an Application Load Balancer (ALB). Which configuration should the solutions architect use to meet the company’s needs while minimizing changes and infrastructure overhead?",
-      "image":"http://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Albert_Einstein_Head.jpg/220px-Albert_Einstein_Head.jpg",
-      "choices":[
-         {
-            "id":"A",
-            "text":"Point a Route53 alias record to an Amazon CloudFront distribution with the ALB as one of its origins. Then, create custom error pages for the distribution."
-         },
-         {
-            "id":"B",
-            "text":"Setup a Route53 active-passive failover configuration. Direct traffic to a static error page hosted within an Amazon S3 bucket when Route53 health checks determine that the ALB endpoint is unhealthy."
-         },
-         {
-            "id":"C",
-            "text":"Update the Route 53 record to use a latency-based routing policy. Add the backup static error page hosted within an Amazon S3 bucket to the record so the traffic is sent to the most responsive endpoints."
-         },
-         {
-            "id":"D",
-            "text":"Set up a Route 53 active-active configuration with the ALB and an Amazon EC2 instance hosting a static error page as endpoints. Route 53 will only send requests to the instance if the heal checks fail for the ALB."
-         }
-      ],
-      "correct":[
-         "A",
-         "B"
-      ],
-      "explanation":""
-   },
-   {
-      "question":"A solutions architect is designing a high performance computing (HPC) workload on Amazon EC2. The EC2 instances need to communicate to each other frequently and require network performance with low latency and high throughput. Which EC2 configuration meets these requirements?",
-      "image":"",
-      "choices":[
-         {
-            "id":"A",
-            "text":"Launch the EC2 instances in a cluster placement group in one Availability Zone."
-         },
-         {
-            "id":"B",
-            "text":"Launch the EC2 instances in a spread placement group in one Availability Zone."
-         },
-         {
-            "id":"C",
-            "text":"Launch the EC2 instances in an Auto Scaling group in two Regions and peer the VPCs."
-         },
-         {
-            "id":"D",
-            "text":"Launch the EC2 instances in an Auto Scaling group spanning multiple Availability Zones."
-         }
-      ],
-      "correct":[
-         "A"
-      ],
-      "explanation":""
-   },
-   {
-      "question":"A solutions architect is designing a solution where users will be directed to a backup static error page if the primary website is unavailable. The primary website’s DNS records are hosted in Amazon Route 53 where their domain is pointing to an Application Load Balancer (ALB). Which configuration should the solutions architect use to meet the company’s needs while minimizing changes and infrastructure overhead?",
-      "image":"http://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Albert_Einstein_Head.jpg/220px-Albert_Einstein_Head.jpg",
-      "choices":[
-         {
-            "id":"A",
-            "text":"Point a Route53 alias record to an Amazon CloudFront distribution with the ALB as one of its origins. Then, create custom error pages for the distribution."
-         },
-         {
-            "id":"B",
-            "text":"Setup a Route53 active-passive failover configuration. Direct traffic to a static error page hosted within an Amazon S3 bucket when Route53 health checks determine that the ALB endpoint is unhealthy."
-         },
-         {
-            "id":"C",
-            "text":"Update the Route 53 record to use a latency-based routing policy. Add the backup static error page hosted within an Amazon S3 bucket to the record so the traffic is sent to the most responsive endpoints."
-         },
-         {
-            "id":"D",
-            "text":"Set up a Route 53 active-active configuration with the ALB and an Amazon EC2 instance hosting a static error page as endpoints. Route 53 will only send requests to the instance if the heal checks fail for the ALB."
-         }
-      ],
-      "correct":[
-         "D"
-      ],
-      "explanation":""
-   }
-];
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var Quiz = JSON.parse(this.responseText);
+            var QuizCode = Quiz['QuizCode'];
+            var QuizTitle = Quiz['QuizTitle'];
+            var QuizDescription = Quiz['QuizDescription'];
+            var QuizQuestions = Quiz['QuizQuestions'];
+        }
+    };
+    xmlhttp.open("GET", "quiz.json", true);
+    xmlhttp.send();
+/*
+var QuizCode = Quiz['QuizCode'];
+var QuizTitle = Quiz['QuizTitle'];
+var QuizDescription = Quiz['QuizDescription'];
+var QuizQuestions = Quiz['QuizQuestions'];
+*/
 </script>
 <!-- JS quiz variables - end -->
 
@@ -121,6 +56,13 @@ var
     QuizPicked ;
 
 jQuery(document).ready(function ($) {
+
+    $.getJSON('./quiz.json', function(data) { 
+        var QuizCode = data['QuizCode'];
+        var QuizTitle = data['QuizTitle'];
+        var QuizDescription = data['QuizDescription'];
+        var QuizQuestions = data['QuizQuestions'];
+    });
 
 	function htmlEncode(value) {
 		return $(document.createElement('div')).text(value).html();
