@@ -54,12 +54,21 @@ var
 
 jQuery(document).ready(function ($) {
 
-	$.getJSON("quiz.json", function(result){
+    $.getJSON( "quiz.json", {} )
+    .done(function( result ) {
         localStorage.setItem('QuizStore', JSON.stringify(result));
+    })
+    .fail(function( jqxhr, textStatus, error ) {
+        var err = textStatus + ", " + error;
+        console.log( "Request Failed: " + err );
     });
-    
-    var Quiz = JSON.parse(localStorage.getItem('QuizStore'));
-    alert(Quiz.QuizCode);
+
+    if( typeof localStorage.getItem('QuizStore') !== "undefined" ){
+        var Quiz = JSON.parse(localStorage.getItem('QuizStore'));
+        alert(Quiz.QuizCode);
+    } else {
+        window.location.reload();
+    }
 
 	function htmlEncode(value) {
 		return $(document.createElement('div')).text(value).html();
