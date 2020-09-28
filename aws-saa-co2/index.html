@@ -27,12 +27,15 @@
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             var Quiz = JSON.parse(this.responseText);
-            var QuizCode = Quiz['QuizCode'];
-            var QuizTitle = Quiz['QuizTitle'];
-            var QuizDescription = Quiz['QuizDescription'];
-            var QuizQuestions = Quiz['QuizQuestions'];
+            var QuizCode = Quiz.QuizCode;
+            var QuizTitle = Quiz.QuizTitle;
+            var QuizDescription = Quiz.QuizDescription;
+            var QuizQuestions = Quiz.QuizQuestions;
         }
-        console.log(JSON.stringify(Quiz))
+        console.log(JSON.stringify(QuizCode));
+        console.log(JSON.stringify(QuizTitle));
+        console.log(JSON.stringify(QuizDescription));
+        console.log(JSON.stringify(QuizQuestions));
     };
     xmlhttp.open("GET", "quiz.json", true);
     xmlhttp.send();
