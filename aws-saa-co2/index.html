@@ -20,24 +20,48 @@
     </style>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    <!-- JS quiz variables - start -->
+<!-- JS quiz variables - start -->
 <script>
-    /*
-var xhttp = new XMLHttpRequest();
-xhttp.open("GET", "quiz.json", true);
-xhttp.send();
+var Quiz = {
+  "QuizCode": "SAA-C02",
+  "QuizTitle": "Exam Practice ( SAA-C02 )",
+  "QuizDescription": "AWS Certified Solutions Architect Associate",
+  "QuizQuestions": [
+    {
+      "id": "1",
+      "question": "A solutions architect is designing a solution where users will be directed to a backup static error page if the primary website is unavailable. The primary website’s DNS records are hosted in Amazon Route 53 where their domain is pointing to an Application Load Balancer (ALB). Which configuration should the solutions architect use to meet the company’s needs while minimizing changes and infrastructure overhead?",
+      "image": "",
+      "reference": "",
+      "correct": [
+        "A"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Point a Route53 alias record to an Amazon CloudFront distribution with the ALB as one of its origins. Then, create custom error pages for the distribution."
+        },
+        {
+          "id": "B",
+          "text": "Setup a Route53 active-passive failover configuration. Direct traffic to a static error page hosted within an Amazon S3 bucket when Route53 health checks determine that the ALB endpoint is unhealthy."
+        },
+        {
+          "id": "C",
+          "text": "Update the Route 53 record to use a latency-based routing policy. Add the backup static error page hosted within an Amazon S3 bucket to the record so the traffic is sent to the most responsive endpoints."
+        },
+        {
+          "id": "D",
+          "text": "Set up a Route 53 active-active configuration with the ALB and an Amazon EC2 instance hosting a static error page as endpoints. Route 53 will only send requests to the instance if the heal checks fail for the ALB."
+        }
+      ]
+    }
+  ]
+};
 
-var Quiz = xhttp.responseText;
-var QuizCode = Quiz['QuizCode'];
-var QuizTitle = Quiz['QuizTitle'];
-var QuizDescription = Quiz['QuizDescription'];
+var QuizCode = Quiz["QuizCode"];
+var QuizTitle = Quiz["QuizTitle"];
+var QuizDescription = Quiz["QuizDescription"];
 var QuizQuestions = Quiz['QuizQuestions'];
 
-    var QuizCode = Quiz.QuizCode;
-    var QuizTitle = Quiz.QuizTitle;
-    var QuizDescription = Quiz.QuizDescription;
-    var QuizQuestions = Quiz.QuizQuestions;   
-*/
 </script>
 <!-- JS quiz variables - end -->
 
@@ -265,21 +289,8 @@ jQuery(document).ready(function ($) {
             $(document.createElement('hr')).addClass('mb-4').appendTo('#QuizContent');
 
 			//add first question
-			//$(document.createElement('p')).addClass('question').attr('id', 'QuizQuestion').text(QuizQuestions[0]['question']).appendTo('#QuizContent');
 			$(document.createElement('p')).attr('id', 'QuizQuestion').text(QuizQuestions[0]['question']).appendTo('#QuizContent');
             
-            //add image if present
-            /*
-			if (QuizQuestions[0].hasOwnProperty('image') && QuizQuestions[0]['image'] != "") {
-				$(document.createElement('img')).addClass('question-image').attr('id', 'question-image').attr('src', QuizQuestions[0]['image']).attr('alt', htmlEncode(QuizQuestions[0]['question'])).appendTo('#QuizContent');
-            }
-            */
-
-			//add explaination
-            /*
-			$(document.createElement('p')).addClass('explanation').attr('id', 'QuizExplanation').html('').appendTo('#QuizContent');
-            */
-
 			//choices block
 			$(document.createElement('div')).attr('id', 'ChoiceBlock').appendTo('#QuizContent');
 
@@ -293,77 +304,31 @@ jQuery(document).ready(function ($) {
 		}
 	}
 
-    function initQuiz(){
-/*
-        $.getJSON( "quiz.json", {} )
-        .done(function( result ) {
-            localStorage.setItem('QuizStore', JSON.stringify(result));
-        })
-        .fail(function( jqxhr, textStatus, error ) {
-            var err = textStatus + ", " + error;
-            console.log( "Request Failed: " + err );
-        });
-
-        $.getJSON("https://raw.githubusercontent.com/faizmazlan/faizmazlan.github.io/master/aws-saa-co2/quiz.json", function(result){
-            localStorage.setItem('QuizStore', JSON.stringify(result));
-        });
-    
-        //var test = JSON.parse(localStorage.getItem('QuizStore'));
-        //alert(test.QuizCode);
-        // alert(localStorage.getItem('QuizStore'));
-
-*/
-        $.getJSON( "quiz.json", {} )
-        .done(function( result ) {
-            localStorage.setItem('QuizStore', JSON.stringify(result));
-        })
-        .fail(function( jqxhr, textStatus, error ) {
-            var err = textStatus + ", " + error;
-            console.log( "Request Failed: " + err );
-            window.location.reload();
-        });
-
-        if( !!localStorage.getItem('QuizStore') ){
-            var Quiz = JSON.parse(localStorage.getItem('QuizStore'));
-            var QuizCode = Quiz.QuizCode;
-            var QuizTitle = Quiz.QuizTitle;
-            var QuizDescription = Quiz.QuizDescription;
-            var QuizQuestions = Quiz.QuizQuestions;  
-            alert(JSON.stringify(QuizQuestions));
-            //add quiz title and description
-            if (typeof QuizTitle !== "undefined" && $.type(QuizTitle) === "string") {
-                $(document.createElement('h2')).text(QuizTitle).appendTo('#QuizHeader');
-                $('#PageTitle').text(QuizTitle);
-            }
-            if (typeof QuizDescription !== "undefined" && $.type(QuizDescription) === "string") {
-                $(document.createElement('p')).addClass('lead').text(QuizDescription).appendTo('#QuizHeader');
-            }
-            
-            $(document.createElement('hr')).addClass('mb-4').appendTo('#QuizContent');
-            //$(document.createElement('p')).addClass('text-center').text(QuizDescription).appendTo('#QuizContent');
-            //$(document.createElement('br')).appendTo('#QuizContent');
-            $(document.createElement('div')).addClass('row').attr('id', 'QuizStartRow1').appendTo('#QuizContent');
-            $(document.createElement('div')).addClass('col').attr('id', 'QuizStartCol11').appendTo('#QuizStartRow1');
-            $(document.createElement('div')).addClass('col').attr('id', 'QuizStartCol12').appendTo('#QuizStartRow1');
-            $(document.createElement('div')).addClass('col').attr('id', 'QuizStartCol13').appendTo('#QuizStartRow1');
-            $(document.createElement('button')).addClass('btn btn-block').addClass('btn-primary').attr('id', 'ButtonStart').text('Start').appendTo('#QuizStartCol12');
-            $(document.createElement('hr')).addClass('mb-4').appendTo('#QuizContent');
-            $('#ButtonStart').on('click', function () {
-                startQuiz();
-            });
-        } else {
-            $(document.createElement('h2')).addClass('text-danger').text('Error!').appendTo('#QuizHeader');
-            $(document.createElement('p')).addClass('lead').text('Unable to load the questions.').appendTo('#QuizHeader');
-            window.location.reload();
+    function initQuiz(Quiz){
+        if (typeof QuizTitle !== "undefined" && $.type(QuizTitle) === "string") {
+            $(document.createElement('h2')).text(QuizTitle).appendTo('#QuizHeader');
+            $('#PageTitle').text(QuizTitle);
         }
-
+        if (typeof QuizDescription !== "undefined" && $.type(QuizDescription) === "string") {
+            $(document.createElement('p')).addClass('lead').text(QuizDescription).appendTo('#QuizHeader');
+        }
+        
+        $(document.createElement('hr')).addClass('mb-4').appendTo('#QuizContent');
+        $(document.createElement('div')).addClass('row').attr('id', 'QuizStartRow1').appendTo('#QuizContent');
+        $(document.createElement('div')).addClass('col').attr('id', 'QuizStartCol11').appendTo('#QuizStartRow1');
+        $(document.createElement('div')).addClass('col').attr('id', 'QuizStartCol12').appendTo('#QuizStartRow1');
+        $(document.createElement('div')).addClass('col').attr('id', 'QuizStartCol13').appendTo('#QuizStartRow1');
+        $(document.createElement('button')).addClass('btn btn-block').addClass('btn-primary').attr('id', 'ButtonStart').text('Start').appendTo('#QuizStartCol12');
+        $(document.createElement('hr')).addClass('mb-4').appendTo('#QuizContent');
+        $('#ButtonStart').on('click', function () {
+            startQuiz();
+        });
     }
 
     initQuiz();
 });
 
 </script>
-
 <!-- JS quiz functions - end -->
 
 </head>
@@ -379,12 +344,6 @@ jQuery(document).ready(function ($) {
     <div class="footer py-4 text-center">
         <p class="text-secondary">© 2020 @MatBuang</p>
     </div>
-<!-- Bootstrap core JavaScript
-================================================== 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/popper.min.js"></script>
-<script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/holder.min.js"></script>
-<script src="https://getbootstrap.com/docs/4.1/dist/js/bootstrap.min.js"></script>
--->
+
 </body>
 </html>
