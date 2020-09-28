@@ -304,34 +304,41 @@ jQuery(document).ready(function ($) {
             console.log( "Request Failed: " + err );
         });
 
-        alert(localStorage.getItem('QuizStore'));
+        // alert(localStorage.getItem('QuizStore'));
 
         if( typeof localStorage.getItem('QuizStore') !== "undefined" ){
             var Quiz = JSON.parse(localStorage.getItem('QuizStore'));
-            alert(Quiz.QuizCode);
+            var QuizCode = Quiz.QuizCode;
+            var QuizTitle = Quiz.QuizTitle;
+            var QuizDescription = Quiz.QuizDescription;
+            var QuizQuestions = Quiz.QuizQuestions;  
+
+            //add quiz title and description
+            if (typeof QuizTitle !== "undefined" && $.type(QuizTitle) === "string") {
+                $(document.createElement('h2')).text(QuizTitle).appendTo('#QuizHeader');
+                $('#PageTitle').text(QuizTitle);
+            }
+            if (typeof QuizDescription !== "undefined" && $.type(QuizDescription) === "string") {
+                $(document.createElement('p')).addClass('lead').text(QuizDescription).appendTo('#QuizHeader');
+            }
+            
+            $(document.createElement('hr')).addClass('mb-4').appendTo('#QuizContent');
+            //$(document.createElement('p')).addClass('text-center').text(QuizDescription).appendTo('#QuizContent');
+            //$(document.createElement('br')).appendTo('#QuizContent');
+            $(document.createElement('div')).addClass('row').attr('id', 'QuizStartRow1').appendTo('#QuizContent');
+            $(document.createElement('div')).addClass('col').attr('id', 'QuizStartCol11').appendTo('#QuizStartRow1');
+            $(document.createElement('div')).addClass('col').attr('id', 'QuizStartCol12').appendTo('#QuizStartRow1');
+            $(document.createElement('div')).addClass('col').attr('id', 'QuizStartCol13').appendTo('#QuizStartRow1');
+            $(document.createElement('button')).addClass('btn btn-block').addClass('btn-primary').attr('id', 'ButtonStart').text('Start').appendTo('#QuizStartCol12');
+            $(document.createElement('hr')).addClass('mb-4').appendTo('#QuizContent');
+            $('#ButtonStart').on('click', function () {
+                startQuiz();
+            });
+        } else {
+            $(document.createElement('h2'))addClass('text-danger').text('Error!').appendTo('#QuizHeader');
+            $(document.createElement('p')).addClass('lead').text('Unable to load the questions.').appendTo('#QuizHeader');
         }
 
-		//add quiz title and description
-		if (typeof QuizTitle !== "undefined" && $.type(QuizTitle) === "string") {
-			$(document.createElement('h2')).text(QuizTitle).appendTo('#QuizHeader');
-            $('#PageTitle').text(QuizTitle);
-        }
-		if (typeof QuizDescription !== "undefined" && $.type(QuizDescription) === "string") {
-			$(document.createElement('p')).addClass('lead').text(QuizDescription).appendTo('#QuizHeader');
-        }
-        
-        $(document.createElement('hr')).addClass('mb-4').appendTo('#QuizContent');
-        //$(document.createElement('p')).addClass('text-center').text(QuizDescription).appendTo('#QuizContent');
-        //$(document.createElement('br')).appendTo('#QuizContent');
-        $(document.createElement('div')).addClass('row').attr('id', 'QuizStartRow1').appendTo('#QuizContent');
-        $(document.createElement('div')).addClass('col').attr('id', 'QuizStartCol11').appendTo('#QuizStartRow1');
-        $(document.createElement('div')).addClass('col').attr('id', 'QuizStartCol12').appendTo('#QuizStartRow1');
-        $(document.createElement('div')).addClass('col').attr('id', 'QuizStartCol13').appendTo('#QuizStartRow1');
-        $(document.createElement('button')).addClass('btn btn-block').addClass('btn-primary').attr('id', 'ButtonStart').text('Start').appendTo('#QuizStartCol12');
-        $(document.createElement('hr')).addClass('mb-4').appendTo('#QuizContent');
-        $('#ButtonStart').on('click', function () {
-            startQuiz();
-        });
     }
 
     initQuiz();
