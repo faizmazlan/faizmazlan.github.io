@@ -57,13 +57,6 @@ var
 
 jQuery(document).ready(function ($) {
 
-    $.getJSON('./quiz.json', function(data) { 
-        var QuizCode = data['QuizCode'];
-        var QuizTitle = data['QuizTitle'];
-        var QuizDescription = data['QuizDescription'];
-        var QuizQuestions = data['QuizQuestions'];
-    });
-
 	function htmlEncode(value) {
 		return $(document.createElement('div')).text(value).html();
     }
