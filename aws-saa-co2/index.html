@@ -28,12 +28,11 @@
         if (this.readyState == 4 && this.status == 200) {
             var data = JSON.parse(this.responseText);
         }
-        return data
     };
     xmlhttp.open("GET", "quiz.json", true);
     xmlhttp.send();
 
-    var Quiz = xmlhttp;
+    var Quiz = JSON.parse(xmlhttp.responseText);
     var QuizCode = Quiz.QuizCode;
     var QuizTitle = Quiz.QuizTitle;
     var QuizDescription = Quiz.QuizDescription;
