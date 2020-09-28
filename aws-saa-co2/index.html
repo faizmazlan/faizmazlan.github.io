@@ -49,6 +49,8 @@ var QuizQuestions = Quiz['QuizQuestions'];
         console.log( "Request Failed: " + err );
     });
 
+    alert(localStorage.getItem('QuizStore'));
+
     if( typeof localStorage.getItem('QuizStore') !== "undefined" ){
         var Quiz = JSON.parse(localStorage.getItem('QuizStore'));
         alert(Quiz.QuizCode);
