@@ -38,7 +38,6 @@ var QuizQuestions = Quiz['QuizQuestions'];
     var QuizDescription = Quiz.QuizDescription;
     var QuizQuestions = Quiz.QuizQuestions;   
 */
-localStorage.setItem('QuizStore', '');
     $.getJSON( "quiz.json", {} )
     .done(function( result ) {
         localStorage.setItem('QuizStore', JSON.stringify(result));
