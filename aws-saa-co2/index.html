@@ -58,7 +58,7 @@ jQuery(document).ready(function ($) {
         localStorage.setItem('QuizStore', JSON.stringify(result));
     });
     
-    var Quiz = localStorage.getItem('QuizStore');
+    var Quiz = JSON.parse(localStorage.getItem('QuizStore'));
     alert(Quiz['QuizCode']);
 
 	function htmlEncode(value) {
