@@ -32,12 +32,12 @@
     xmlhttp.open("GET", "quiz.json", true);
     xmlhttp.send();
 
-    var Quiz = JSON.parse(xmlhttp.responseText);
+    var Quiz = xmlhttp.responseText;
+    /*
     var QuizCode = Quiz.QuizCode;
     var QuizTitle = Quiz.QuizTitle;
     var QuizDescription = Quiz.QuizDescription;
     var QuizQuestions = Quiz.QuizQuestions;   
-    /*
 var QuizCode = Quiz['QuizCode'];
 var QuizTitle = Quiz['QuizTitle'];
 var QuizDescription = Quiz['QuizDescription'];
@@ -299,8 +299,6 @@ jQuery(document).ready(function ($) {
 
     function initQuiz(){
         localStorage.clear();
-        alert(QuizCode);
-        alert(QuizTitle);
 
 		//add quiz title and description
 		if (typeof QuizTitle !== "undefined" && $.type(QuizTitle) === "string") {
