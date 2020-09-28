@@ -239,10 +239,10 @@ jQuery(document).ready(function ($) {
         $(document.createElement('hr')).addClass('mb-4').appendTo('#QuizContent');
         if ( QuizScorePercent > 80 ) {
             $(document.createElement('h2')).addClass('text-center text-success').text('Congratulations!').appendTo('#QuizContent');
-            $(document.createElement('h4')).addClass('text-center text-secondary').text('You scored '+QuizScorePercent.toFixed(2)+'% for the exam!').appendTo('#QuizContent');
+            $(document.createElement('h4')).addClass('text-center text-secondary').text('You scored '+QuizScorePercent.toFixed(2)+'%').appendTo('#QuizContent');
         } else {
             $(document.createElement('h2')).addClass('text-center text-danger').text('Try Again').appendTo('#QuizContent');
-            $(document.createElement('h4')).addClass('text-center text-secondary').text('You scored '+QuizScorePercent.toFixed(2)+'% for the exam!').appendTo('#QuizContent');
+            $(document.createElement('h4')).addClass('text-center text-secondary').text('You scored '+QuizScorePercent.toFixed(2)+'%').appendTo('#QuizContent');
         }
         $(document.createElement('br')).appendTo('#QuizContent');
         $(document.createElement('div')).addClass('row').attr('id', 'QuizStartRow1').appendTo('#QuizContent');
