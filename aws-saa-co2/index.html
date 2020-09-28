@@ -284,9 +284,7 @@ jQuery(document).ready(function ($) {
                     text.join(' ')
                 );
             });
-
         });
-
     }
 
     function getResult() {
@@ -308,6 +306,10 @@ jQuery(document).ready(function ($) {
         $(document.createElement('div')).addClass('col').attr('id', 'QuizStartCol11').appendTo('#QuizStartRow1');
         $(document.createElement('div')).addClass('col').attr('id', 'QuizStartCol12').appendTo('#QuizStartRow1');
         $(document.createElement('div')).addClass('col').attr('id', 'QuizStartCol13').appendTo('#QuizStartRow1');
+        $(document.createElement('button')).addClass('btn btn-block').addClass('btn-secondary').attr('id', 'ButtonRevisit').text('Revisit').appendTo('#QuizStartCol12');
+        $('#ButtonRevisit').on('click', function () {
+            startQuiz(0);
+        });
         $(document.createElement('button')).addClass('btn btn-block').addClass('btn-primary').attr('id', 'ButtonStart').text('Start Over').appendTo('#QuizStartCol12');
         $('#ButtonStart').on('click', function () {
             window.location.reload();
@@ -315,7 +317,12 @@ jQuery(document).ready(function ($) {
         $(document.createElement('hr')).addClass('mb-4').appendTo('#QuizContent');
     }
 
-    function startQuiz() {
+    function startQuiz(CurrentQuestion) {
+
+        if ( typeof CurrentQuestion !== "undefined" ){
+            QuizCurrentQuestions = CurrentQuestion
+        }
+
         $('#QuizContent').empty();
 
 		//add pager and questions
