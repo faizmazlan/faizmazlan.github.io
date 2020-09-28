@@ -54,12 +54,12 @@ var
 
 jQuery(document).ready(function ($) {
 
-    $.getJSON("quiz.js", function(result){
+    $.getJSON("quiz.json", function(result){
         var Quiz = result
     });
 
     alert(Quiz.QuizCode);
-    
+
 	function htmlEncode(value) {
 		return $(document.createElement('div')).text(value).html();
     }
