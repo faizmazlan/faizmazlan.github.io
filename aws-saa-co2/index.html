@@ -38,22 +38,7 @@ var QuizQuestions = Quiz['QuizQuestions'];
     var QuizDescription = Quiz.QuizDescription;
     var QuizQuestions = Quiz.QuizQuestions;   
 */
-</script>
-<!-- JS quiz variables - end -->
-
-<!-- JS quiz functions - start -->
-<script>
-
-var 
-    QuizCurrentQuestions = 0 ,
-    QuizScore = [] ,
-    QuizScoreSum = 0 ,
-    QuizScorePercent = 0 ,
-	QuizSubmit = true ,
-    QuizPicked ;
-
-jQuery(document).ready(function ($) {
-
+localStorage.setItem('QuizStore', '');
     $.getJSON( "quiz.json", {} )
     .done(function( result ) {
         localStorage.setItem('QuizStore', JSON.stringify(result));
@@ -69,6 +54,22 @@ jQuery(document).ready(function ($) {
     } else {
         window.location.reload();
     }
+
+</script>
+<!-- JS quiz variables - end -->
+
+<!-- JS quiz functions - start -->
+<script>
+
+var 
+    QuizCurrentQuestions = 0 ,
+    QuizScore = [] ,
+    QuizScoreSum = 0 ,
+    QuizScorePercent = 0 ,
+	QuizSubmit = true ,
+    QuizPicked ;
+
+jQuery(document).ready(function ($) {
 
 	function htmlEncode(value) {
 		return $(document.createElement('div')).text(value).html();
