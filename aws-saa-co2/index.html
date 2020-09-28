@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Quiz</title>
+    <title id="PageTitle">Exam Practice</title>
 
     <!-- Bootstrap core CSS -->
     <link href="https://getbootstrap.com/docs/4.1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -23,8 +23,8 @@
 
     <!-- JS quiz variables - start -->
 <script>
-var QuizTitle = "Exam Practice" ;
-var QuizDescription = "AWS Certified Solutions Architect Associate ( SAA-C02 )" ;
+var QuizTitle = "Exam Practice ( SAA-C02 )" ;
+var QuizDescription = "AWS Certified Solutions Architect Associate" ;
 var QuizQuestions = [
    {
       "question":"A solutions architect is designing a solution where users will be directed to a backup static error page if the primary website is unavailable. The primary website’s DNS records are hosted in Amazon Route 53 where their domain is pointing to an Application Load Balancer (ALB). Which configuration should the solutions architect use to meet the company’s needs while minimizing changes and infrastructure overhead?",
@@ -353,6 +353,7 @@ jQuery(document).ready(function ($) {
 		//add quiz title and description
 		if (typeof QuizTitle !== "undefined" && $.type(QuizTitle) === "string") {
 			$(document.createElement('h2')).text(QuizTitle).appendTo('#QuizHeader');
+            $('#PageTitle').text(QuizTitle);
         }
 		if (typeof QuizDescription !== "undefined" && $.type(QuizDescription) === "string") {
 			$(document.createElement('p')).addClass('lead').text(QuizDescription).appendTo('#QuizHeader');
