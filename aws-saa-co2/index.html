@@ -33,7 +33,7 @@
     xmlhttp.open("GET", "quiz.json", true);
     xmlhttp.send();
 
-    var Quiz = xmlhttp.onreadystatechange;
+    var Quiz = xmlhttp;
     var QuizCode = Quiz.QuizCode;
     var QuizTitle = Quiz.QuizTitle;
     var QuizDescription = Quiz.QuizDescription;
