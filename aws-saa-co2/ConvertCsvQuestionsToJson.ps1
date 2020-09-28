@@ -18,12 +18,18 @@ foreach ($Quiz in $Quizes) {
             }
         }
     }
+
+    if ($null -ne $Quiz.Answer){
+        $QuizAnswer = $Quiz.Answer.Split(" ")
+    } else {
+        $QuizAnswer = $Quiz.Answer
+    }
     $QuestionArray += [PSCustomObject]@{
         id = $Quiz.QuestionNum
         question = $Quiz.Question
         image = $Quiz.ImageUrl
         reference = $Quiz.Explaination
-        correct = $Quiz.Answer.Split(" ")
+        correct = $QuizAnswer
         choices = $ChoiceArray
     }
 }
