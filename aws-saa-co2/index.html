@@ -35,13 +35,7 @@
     var QuizCode = Quiz.QuizCode;
     var QuizTitle = Quiz.QuizTitle;
     var QuizDescription = Quiz.QuizDescription;
-    var QuizQuestions = Quiz.QuizQuestions;
-
-    console.log(JSON.stringify(QuizCode));
-    console.log(JSON.stringify(QuizTitle));
-    console.log(JSON.stringify(QuizDescription));
-    console.log(JSON.stringify(QuizQuestions));
-   
+    var QuizQuestions = Quiz.QuizQuestions;   
     /*
 var QuizCode = Quiz['QuizCode'];
 var QuizTitle = Quiz['QuizTitle'];
@@ -304,6 +298,9 @@ jQuery(document).ready(function ($) {
 
     function initQuiz(){
         localStorage.clear();
+        alert(QuizCode);
+        alert(QuizTitle);
+
 		//add quiz title and description
 		if (typeof QuizTitle !== "undefined" && $.type(QuizTitle) === "string") {
 			$(document.createElement('h2')).text(QuizTitle).appendTo('#QuizHeader');
