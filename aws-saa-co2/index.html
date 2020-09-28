@@ -23,6 +23,7 @@
 
     <!-- JS quiz variables - start -->
 <script>
+    /*
 var xhttp = new XMLHttpRequest();
 xhttp.open("GET", "quiz.json", true);
 xhttp.send();
@@ -32,7 +33,6 @@ var QuizCode = Quiz['QuizCode'];
 var QuizTitle = Quiz['QuizTitle'];
 var QuizDescription = Quiz['QuizDescription'];
 var QuizQuestions = Quiz['QuizQuestions'];
-    /*
 
     var QuizCode = Quiz.QuizCode;
     var QuizTitle = Quiz.QuizTitle;
@@ -54,6 +54,17 @@ var
     QuizPicked ;
 
 jQuery(document).ready(function ($) {
+
+    $.ajax({
+        url: 'quiz.json',
+        dataType: 'jsonp',
+        success: function (data, textStatus, jqXHR) {
+           alert(data.QuizTitle);
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert('Oops there was an error');
+        }
+    });
 
 	function htmlEncode(value) {
 		return $(document.createElement('div')).text(value).html();
