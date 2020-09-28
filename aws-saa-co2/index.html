@@ -316,7 +316,6 @@ jQuery(document).ready(function ($) {
     }
 
     function startQuiz() {
-        localStorage.clear();
         $('#QuizContent').empty();
 
 		//add pager and questions
@@ -326,7 +325,9 @@ jQuery(document).ready(function ($) {
             $(document.createElement('hr')).addClass('mb-4').appendTo('#QuizContent');
 
 			//add first question
-			$(document.createElement('p')).addClass('question').attr('id', 'QuizQuestion').text(QuizQuestions[0]['question']).appendTo('#QuizContent');
+			//$(document.createElement('p')).addClass('question').attr('id', 'QuizQuestion').text(QuizQuestions[0]['question']).appendTo('#QuizContent');
+			$(document.createElement('p')).attr('id', 'QuizQuestion').text(QuizQuestions[0]['question']).appendTo('#QuizContent');
+            
             //add image if present
             /*
 			if (QuizQuestions[0].hasOwnProperty('image') && QuizQuestions[0]['image'] != "") {
@@ -334,7 +335,10 @@ jQuery(document).ready(function ($) {
             }
             */
 
+			//add explaination
+            /*
 			$(document.createElement('p')).addClass('explanation').attr('id', 'QuizExplanation').html('').appendTo('#QuizContent');
+            */
 
 			//choices block
 			$(document.createElement('div')).attr('id', 'ChoiceBlock').appendTo('#QuizContent');
@@ -348,8 +352,9 @@ jQuery(document).ready(function ($) {
             setButtons();
 		}
 	}
-    //startQuiz();
+
     function initQuiz(){
+        localStorage.clear();
 		//add quiz title and description
 		if (typeof QuizTitle !== "undefined" && $.type(QuizTitle) === "string") {
 			$(document.createElement('h2')).text(QuizTitle).appendTo('#QuizHeader');
