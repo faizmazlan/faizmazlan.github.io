@@ -23,21 +23,21 @@
 
     <!-- JS quiz variables - start -->
 <script>
-    var xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "quiz.json", false);
-    xhttp.send();
+var xhttp = new XMLHttpRequest();
+xhttp.open("GET", "quiz.json", false);
+xhttp.send();
 
-    var Quiz = xhttp.responseText;
-    console.log(Quiz);
-    /*
-    var QuizCode = Quiz.QuizCode;
-    var QuizTitle = Quiz.QuizTitle;
-    var QuizDescription = Quiz.QuizDescription;
-    var QuizQuestions = Quiz.QuizQuestions;   
+var Quiz = xhttp.responseText;
 var QuizCode = Quiz['QuizCode'];
 var QuizTitle = Quiz['QuizTitle'];
 var QuizDescription = Quiz['QuizDescription'];
 var QuizQuestions = Quiz['QuizQuestions'];
+    /*
+
+    var QuizCode = Quiz.QuizCode;
+    var QuizTitle = Quiz.QuizTitle;
+    var QuizDescription = Quiz.QuizDescription;
+    var QuizQuestions = Quiz.QuizQuestions;   
 */
 </script>
 <!-- JS quiz variables - end -->
