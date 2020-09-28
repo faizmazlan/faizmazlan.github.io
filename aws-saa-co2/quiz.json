@@ -1,0 +1,34 @@
+{
+  "QuizCode": "SAA-C02",
+  "QuizTitle": "Exam Practice ( SAA-C02 )",
+  "QuizDescription": "AWS Certified Solutions Architect Associate",
+  "QuizQuestions": [
+    {
+      "id": "1",
+      "question": "A solutions architect is designing a solution where users will be directed to a backup static error page if the primary website is unavailable. The primary website’s DNS records are hosted in Amazon Route 53 where their domain is pointing to an Application Load Balancer (ALB). Which configuration should the solutions architect use to meet the company’s needs while minimizing changes and infrastructure overhead?",
+      "image": "",
+      "reference": "",
+      "correct": [
+        "A"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Point a Route53 alias record to an Amazon CloudFront distribution with the ALB as one of its origins. Then, create custom error pages for the distribution."
+        },
+        {
+          "id": "B",
+          "text": "Setup a Route53 active-passive failover configuration. Direct traffic to a static error page hosted within an Amazon S3 bucket when Route53 health checks determine that the ALB endpoint is unhealthy."
+        },
+        {
+          "id": "C",
+          "text": "Update the Route 53 record to use a latency-based routing policy. Add the backup static error page hosted within an Amazon S3 bucket to the record so the traffic is sent to the most responsive endpoints."
+        },
+        {
+          "id": "D",
+          "text": "Set up a Route 53 active-active configuration with the ALB and an Amazon EC2 instance hosting a static error page as endpoints. Route 53 will only send requests to the instance if the heal checks fail for the ALB."
+        }
+      ]
+    }
+  ]
+}
