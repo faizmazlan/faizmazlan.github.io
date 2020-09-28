@@ -54,17 +54,12 @@ var
 
 jQuery(document).ready(function ($) {
 
-    $.ajax({
-        url: 'quiz.json',
-        dataType: 'jsonp',
-        success: function (data, textStatus, jqXHR) {
-           alert(data.QuizTitle);
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            alert('Oops there was an error');
-        }
+    $.getJSON("quiz.js", function(result){
+        var Quiz = result
     });
 
+    alert(Quiz.QuizCode);
+    
 	function htmlEncode(value) {
 		return $(document.createElement('div')).text(value).html();
     }
