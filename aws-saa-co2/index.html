@@ -54,11 +54,16 @@ var
 
 jQuery(document).ready(function ($) {
 
-    $.getJSON("quiz.json", function(result){
-        var Quiz = result
-        alert(Quiz.QuizCode);
+	$.getJSON("demo_ajax_json.js", function(result){
+        //return JSON.stringify(result);
+        localStorage.setItem('QuizStore', JSON.stringify(result));
     });
-
+    
+    var Quiz = localStorage.getItem('QuizStore');
+    var QuizCode = Quiz['QuizCode'];
+    var QuizTitle = Quiz['QuizTitle'];
+    var QuizDescription = Quiz['QuizDescription'];
+    var QuizQuestions = Quiz['QuizQuestions'];
 
 	function htmlEncode(value) {
 		return $(document.createElement('div')).text(value).html();
