@@ -1,1 +1,1 @@
-# simple-html-quiz
+# Simple personal projects 
