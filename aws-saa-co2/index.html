@@ -38,6 +38,8 @@ var QuizQuestions = Quiz['QuizQuestions'];
     var QuizDescription = Quiz.QuizDescription;
     var QuizQuestions = Quiz.QuizQuestions;   
 */
+    localStorage.clear();
+
     $.getJSON( "quiz.json", {} )
     .done(function( result ) {
         localStorage.setItem('QuizStore', JSON.stringify(result));
@@ -50,8 +52,6 @@ var QuizQuestions = Quiz['QuizQuestions'];
     if( typeof localStorage.getItem('QuizStore') !== "undefined" ){
         var Quiz = JSON.parse(localStorage.getItem('QuizStore'));
         alert(Quiz.QuizCode);
-    } else {
-        window.location.reload();
     }
 
 </script>
@@ -309,7 +309,6 @@ jQuery(document).ready(function ($) {
 	}
 
     function initQuiz(){
-        localStorage.clear();
 
 		//add quiz title and description
 		if (typeof QuizTitle !== "undefined" && $.type(QuizTitle) === "string") {
