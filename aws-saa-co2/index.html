@@ -54,8 +54,7 @@ var
 
 jQuery(document).ready(function ($) {
 
-	$.getJSON("demo_ajax_json.js", function(result){
-        //return JSON.stringify(result);
+	$.getJSON("quiz.json", function(result){
         localStorage.setItem('QuizStore', JSON.stringify(result));
     });
     
