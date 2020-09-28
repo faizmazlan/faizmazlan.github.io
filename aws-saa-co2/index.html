@@ -354,6 +354,7 @@ jQuery(document).ready(function ($) {
         } else {
             $(document.createElement('h2')).addClass('text-danger').text('Error!').appendTo('#QuizHeader');
             $(document.createElement('p')).addClass('lead').text('Unable to load the questions.').appendTo('#QuizHeader');
+            window.location.reload();
         }
 
     }
