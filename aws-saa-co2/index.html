@@ -18,7 +18,8 @@
         .pager-left { margin:5px 0 5px; color:#999; text-align:left; font-size: 14px; }
         .pager-right { margin:5px 0 5px; color:#999; text-align:right; font-size: 14px; }
         .pager-right select { border: 1px solid #ccc; color:#999; }
-        .pager-button { margin-left:10px; text-align:right; font-size: 14px; }
+        .pager-left-button { margin-right:10px; text-align:left; font-size: 12px; }
+        .pager-right-button { margin-left:10px; text-align:right; font-size: 12px; }
         .question { margin:5px 0 5px; font-size: 12px; }
         img.question-image { width:100%; height:auto; display:block; max-width:80%; margin:10px auto; border:1px solid #ccc; }
         input[type=number] {
@@ -5909,7 +5910,7 @@ jQuery(document).ready(function ($) {
       $(document.createElement('div')).addClass('col-2 pager-left').attr('id', 'QuizPagerColLeft').appendTo('#QuizPagerRow');
       $(document.createElement('div')).addClass('col pager-right').attr('id', 'QuizPagerColRight').appendTo('#QuizPagerRow');
 
-      $(document.createElement('button')).addClass('btn btn-outline-secondary').addClass('btn-primary').attr('id', 'ButtonScore').text('Score').appendTo('#QuizPagerColLeft');
+      $(document.createElement('button')).addClass('btn btn-outline-secondary btn-xs pager-left-button').attr('id', 'ButtonScore').text('Score').appendTo('#QuizPagerColLeft');
       
       $(document.createElement('div')).addClass('pager-right').attr('id', 'QuizPager').text('Question ').appendTo('#QuizPagerColRight');
       $(document.createElement('select')).attr('name', 'QuizPagerSelect').attr('id', 'QuizPagerSelect').appendTo('#QuizPager');
@@ -5917,7 +5918,7 @@ jQuery(document).ready(function ($) {
         $("#QuizPagerSelect").append($("<option>").attr('value',i).text(i));
       }
       $(document.createElement('span')).addClass('pager-right').attr('id', 'QuizPagerText').text(' of ' + QuizQuestions.length).appendTo('#QuizPager');
-      $(document.createElement('button')).addClass('btn btn-outline-secondary pager-button').addClass('btn-primary').attr('id', 'ButtonJump').text('Go').appendTo('#QuizPager');
+      $(document.createElement('button')).addClass('btn btn-outline-secondary btn-xs pager-right-button').attr('id', 'ButtonJump').text('Go').appendTo('#QuizPager');
       $('#ButtonJump').on('click', function () {
           getSelectedAnswers();
           checkAnswer(QuizQuestions[QuizCurrentQuestions]['choices']);
