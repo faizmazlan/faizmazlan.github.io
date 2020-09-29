@@ -1386,6 +1386,1380 @@
           "text": "Configure an Amazon Simple Notification Service (Amazon SNS) notification to send alerts when there are auto scaling EC2_INSTANCE_LAUNCH events"
         }
       ]
+    },
+    {
+      "id": "51",
+      "question": "A company has a two-tier application architecture that runs in public and private subnets Amazon EC2 instances running the web application are in the public subnet and a database runs on the private subnet. The web application instances and the database are running in a single Availability Zone (AZ). Which combination of steps should a solutions architect take to provide high availability for this architecture? (Select TWO.)",
+      "image": "",
+      "reference": "You would the EC2 instances to have high availability by placing them in multiple AZs.",
+      "correct": [
+        "B",
+        "E"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Create new public and private subnets in the same AZ for high availability"
+        },
+        {
+          "id": "B",
+          "text": "Create an Amazon EC2 Auto Scaling group and Application Load Balancer spanning multiple AZs"
+        },
+        {
+          "id": "C",
+          "text": "Add the existing web application instances to an Auto Scaling group behind an Application Load Balancer"
+        },
+        {
+          "id": "D",
+          "text": "Create new public and private subnets in a new AZ Create a database using Amazon EC2 in one AZ"
+        },
+        {
+          "id": "E",
+          "text": "Create new public and private subnets in the same VPC each in a new AZ Migrate the database to an Amazon RDS multi-AZ deployment"
+        }
+      ]
+    },
+    {
+      "id": "52",
+      "question": "A financial services company has a web application that serves users in the United States and Europe. The application consists of a database tier and a web server tier. The database tier consists of a MySQL database hosted in us-east-1 Amazon Route 53 geoproximity routing is used to direct traffic to instances in the closest Region. A performance review of the system reveals that European users are not receiving the same level of query performance as those in the United States. Which changes should be made to the database tier to improve performance?",
+      "image": "",
+      "reference": "",
+      "correct": [
+        "D"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Migrate the database to Amazon RDS for MySQL. Configure Multi-AZ in one of the European Regions. "
+        },
+        {
+          "id": "B",
+          "text": "Migrate the database to Amazon DynamoDB. Use DynamoDB global tables to enable replication to additional Regions. "
+        },
+        {
+          "id": "C",
+          "text": "Deploy MySQL instances in each Region. Deploy an Application Load Balancer in front of MySQL to reduce the load on the primary instance. "
+        },
+        {
+          "id": "D",
+          "text": "Migrate the database to an Amazon Aurora global database in MySQL compatibility mode. Configure read replicas in one of the European Regions. "
+        }
+      ]
+    },
+    {
+      "id": "53",
+      "question": "A solutions architect is tasked with transferring 750 TB of data from a network-attached file system located at a branch office to Amazon S3 Glacier. The solution must avoid saturating the branch office's low-bandwidth internet connection. What is the MOST cost-effective solution1?",
+      "image": "",
+      "reference": "",
+      "correct": [
+        "D"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Create a site-to-site VPN tunnel to an Amazon S3 bucket and transfer the files directly. Create a bucket policy to enforce a VPC endpoint."
+        },
+        {
+          "id": "B",
+          "text": "Order 10 AWS Snowball appliances and select an S3 Glacier vault as the destination. Create a bucket policy to enforce a VPC endpoint."
+        },
+        {
+          "id": "C",
+          "text": "Mount the network-attached file system to Amazon S3 and copy the files directly. Create a lifecycle policy to transition the S3 objects to Amazon S3 Glacier."
+        },
+        {
+          "id": "D",
+          "text": "Order 10 AWS Snowball appliances and select an Amazon S3 bucket as the destination. Create a lifecycle policy to transition the S3 objects to Amazon S3 Glacier."
+        }
+      ]
+    },
+    {
+      "id": "54",
+      "question": "A company's production application runs online transaction processing (OLTP) transactions on an Amazon RDS MySQL DB instance. The company is launching a new reporting tool that will access the same data. The reporting tool must be highly available and not impact the performance of the production application. How can this be achieved'?",
+      "image": "",
+      "reference": "https://aws.amazon.com/blogs/database/best-storage-practices-for-running-production-workloadson- hosted-databases-with-amazon-rds-or-amazon- ec2/ ",
+      "correct": [
+        "B"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Create hourly snapshots of the production RDS DB instance. "
+        },
+        {
+          "id": "B",
+          "text": "Create a Multi-AZ RDS Read Replica of the production RDS DB instance. "
+        },
+        {
+          "id": "C",
+          "text": "Create multiple RDS Read Replicas of the production RDS DB instance. Place the Read Replicas in an Auto Scaling group. "
+        },
+        {
+          "id": "D",
+          "text": "Create a Single-AZ RDS Read Replica of the production RDS DB instance. Create a second Single-AZ RDS Read Replica from the replica. "
+        }
+      ]
+    },
+    {
+      "id": "55",
+      "question": "A company allows its developers to attach existing 1AM policies to existing 1AM roles to enable faster experimentation and agility. However the security operations team is concerned that the developers could attach the existing administrator policy, which would allow the developers to circumvent any other security policies. How should a solutions architect address this issue?",
+      "image": "",
+      "reference": "",
+      "correct": [
+        "C"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Create an Amazon SNS topic to send an alert every time a developer creates a new policy"
+        },
+        {
+          "id": "B",
+          "text": "Use service control policies to disable IAM activity across all accounts in the organizational unit"
+        },
+        {
+          "id": "C",
+          "text": "Prevent the developers from attaching any policies and assign all 1AM duties to the security operations team"
+        },
+        {
+          "id": "D",
+          "text": "Set an IAM permissions boundary on the developer 1AM role that explicitly denies attaching the administrator policy"
+        }
+      ]
+    },
+    {
+      "id": "56",
+      "question": "A user is storing a large number of objects on AWS S3. The user wants to implement the search functionality among the objects. How can the user achieve this?",
+      "image": "",
+      "reference": "In Amazon Web Services, AWS S3 does not provide any query facility. To retrieve a specific object the user needs to know the exact bucket / object key. In this case it is recommended to have an own DB system which manages the S3 metadata and key mapping. Reference: http://media.amazonwebservices.com/AWS_Storage_Options.pdf",
+      "correct": [
+        "D"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Use the indexing feature of S3."
+        },
+        {
+          "id": "B",
+          "text": "Tag the objects with the metadata to search on that."
+        },
+        {
+          "id": "C",
+          "text": "Use the query functionality of S3."
+        },
+        {
+          "id": "D",
+          "text": "Make your own DB system which stores the S3 metadata for the search functionality."
+        }
+      ]
+    },
+    {
+      "id": "57",
+      "question": "After setting up a Virtual Private Cloud (VPC) network, a more experienced cloud engineer suggests that to achieve low network latency and high network throughput you should look into setting up a placement group. You know nothing about this, but begin to do some research about it and are especially curious about its limitations. Which of the below statements is wrong in describing the limitations of a placement group?",
+      "image": "",
+      "reference": "A placement group is a logical grouping of instances within a single Availability Zone. Using placement groups enables applications to participate in a low-latency, 10 Gbps network. Placement groups are recommended for applications that benefit from low network latency, high network throughput, or both. To provide the lowest latency, and the highest packet-per-second network performance for your placement group, choose an instance type that supports enhanced networking. Placement groups have the following limitations: The name you specify for a placement group a name must be unique within your AWS account. A placement group can't span multiple Availability Zones. Although launching multiple instance types into a placement group is possible, this reduces the likelihood that the required capacity will be available for your launch to succeed. We recommend using the same instance type for all instances in a placement group. You can't merge placement groups. Instead, you must terminate the instances in one placement group, and then relaunch those instances into the other placement group. A placement group can span peered VPCs; however, you will not get full- bisection bandwidth between instances in peered VPCs. For more information about VPC peering connections, see VPC Peering in the Amazon VPC User Guide. You can't move an existing instance into a placement group. You can create an AMI from your existing instance, and then launch a new instance from the AMI into a placement group. Reference: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html",
+      "correct": [
+        "B"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Although launching multiple instance types into a placement group is possible, this reduces the likelihood that the required capacity will be available for your launch to succeed."
+        },
+        {
+          "id": "B",
+          "text": "A placement group can span multiple Availability Zones."
+        },
+        {
+          "id": "C",
+          "text": "You can't move an existing instance into a placement group."
+        },
+        {
+          "id": "D",
+          "text": "A placement group can span peered VPCs"
+        }
+      ]
+    },
+    {
+      "id": "58",
+      "question": "What is a placement group in Amazon EC2?",
+      "image": "",
+      "reference": "A placement group is a logical grouping of instances within a single Availability Zone. Reference: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html",
+      "correct": [
+        "A"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "It is a group of EC2 instances within a single Availability Zone."
+        },
+        {
+          "id": "B",
+          "text": "It the edge location of your web content."
+        },
+        {
+          "id": "C",
+          "text": "It is the AWS region where you run the EC2 instance of your web content."
+        },
+        {
+          "id": "D",
+          "text": "It is a group used to span multiple Availability Zones."
+        }
+      ]
+    },
+    {
+      "id": "59",
+      "question": "You are migrating an internal server on your DC to an EC2 instance with EBS volume. Your server disk usage is around 500GB so you just copied all your data to a 2TB disk to be used with AWS Import/Export. Where will the data be imported once it arrives at Amazon?",
+      "image": "",
+      "reference": "An import to Amazon EBS will have different results depending on whether the capacity of your storage device is less than or equal to 1 TB or greater than 1 TB. The maximum size of an Amazon EBS snapshot is 1 TB, so if the device image is larger than 1 TB, the image is chunked and stored on Amazon S3. The target location is determined based on the total capacity of the device, not the amount of data on the device. Reference: http://docs.aws.amazon.com/AWSImportExport/latest/DG/Concepts.html",
+      "correct": [
+        "B"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "to a 2TB EBS volume"
+        },
+        {
+          "id": "B",
+          "text": "to an S3 bucket with 2 objects of 1TB"
+        },
+        {
+          "id": "C",
+          "text": "to an 500GB EBS volume"
+        },
+        {
+          "id": "D",
+          "text": "to an S3 bucket as a 2TB snapshot"
+        }
+      ]
+    },
+    {
+      "id": "60",
+      "question": "A client needs you to import some existing infrastructure from a dedicated hosting provider to AWS to try and save on the cost of running his current website. He also needs an automated process that manages backups, software patching, automatic failure detection, and recovery. You are aware that his existing set up currently uses an Oracle database. Which of the following AWS databases would be best for accomplishing this task?",
+      "image": "",
+      "reference": "Amazon RDS gives you access to the capabilities of a familiar MySQL, Oracle, SQL Server, or PostgreSQL database engine. This means that the code, applications, and tools you already use today with your existing databases can be used with Amazon RDS. Amazon RDS automatically patches the database software and backs up your database, storing the backups for a user- defined retention period and enabling point-in-time recovery. Reference: http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html",
+      "correct": [
+        "A"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Amazon RDS"
+        },
+        {
+          "id": "B",
+          "text": "Amazon Redshift"
+        },
+        {
+          "id": "C",
+          "text": "Amazon SimpleDB"
+        },
+        {
+          "id": "D",
+          "text": "Amazon ElastiCache"
+        }
+      ]
+    },
+    {
+      "id": "61",
+      "question": "True or false: A VPC contains multiple subnets, where each subnet can span multiple Availability Zones.",
+      "image": "",
+      "reference": "A VPC can span several Availability Zones. In contrast, a subnet must reside within a single Availability Zone. Reference: https://aws.amazon.com/vpc/faqs/",
+      "correct": [
+        "C"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "This is true only if requested during the set-up of VPC."
+        },
+        {
+          "id": "B",
+          "text": "This is true."
+        },
+        {
+          "id": "C",
+          "text": "This is false."
+        },
+        {
+          "id": "D",
+          "text": "This is true only for US regions."
+        }
+      ]
+    },
+    {
+      "id": "62",
+      "question": "An edge location refers to which Amazon Web Service?",
+      "image": "",
+      "reference": "Amazon CloudFront is a content distribution network. A content delivery network or content distribution network (CDN) is a large distributed system of servers deployed in multiple data centers across the world. The location of the data center used for CDN is called edge location. Amazon CloudFront can cache static content at each edge location. This means that your popular static content (e.g., your site's logo, navigational images, cascading style sheets, JavaScript code, etc.) will be available at a nearby edge location for the browsers to download with low latency and improved performance for viewers. Caching popular static content with Amazon CloudFront also helps you offload requests for such files from your origin sever - CloudFront serves the cached copy when available and only makes a request to your origin server if the edge location receiving the browser's request does not have a copy of the file. Reference: http://aws.amazon.com/cloudfront/",
+      "correct": [
+        "C"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "An edge location is refered to the network configured within a Zone or Region"
+        },
+        {
+          "id": "B",
+          "text": "An edge location is an AWS Region"
+        },
+        {
+          "id": "C",
+          "text": "An edge location is the location of the data center used for Amazon CloudFront."
+        },
+        {
+          "id": "D",
+          "text": "An edge location is a Zone within an AWS Region"
+        }
+      ]
+    },
+    {
+      "id": "63",
+      "question": "Which of the following statements is true in regards to ElasticCache?",
+      "image": "",
+      "reference": "Amazon ElastiCache is a web service that makes it easy to deploy and run Memcached or Redis protocol-compliant server nodes in the cloud. Amazon ElastiCache improves the performance of web applications by allowing you to retrieve information from a fast, managed, in-memory caching system, instead of relying entirely on slower disk-based databases. The service simplifies and offloads the management, monitoring and operation of in-memory cache environments, enabling your engineering resources to focus on developing applications. Using Amazon ElastiCache, you can not only improve load and response times to user actions and queries, but also reduce the cost associated with scaling web applications. Reference: https://aws.amazon.com/elasticache/faqs/",
+      "correct": [
+        "D"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "You are looking at ways to improve some existing infrastructure as it seems a lot of engineering resources are being taken up with basic management and monitoring tasks and the costs seem to be excessive. You are thinking of deploying Amazon ElasticCache to help. Which of the following statements is true in regards to ElasticCache?"
+        },
+        {
+          "id": "B",
+          "text": "You can improve load and response times to user actions and queries however the cost associated with scaling web applications will be more."
+        },
+        {
+          "id": "C",
+          "text": "You can't improve load and response times to user actions and queries but you can reduce the cost associated with scaling web applications."
+        },
+        {
+          "id": "D",
+          "text": "You can improve load and response times to user actions and queries however the cost associated with scaling web applications will remain the same."
+        },
+        {
+          "id": "E",
+          "text": "You can improve load and response times to user actions and queries and also reduce the cost associated with scaling web applications."
+        }
+      ]
+    },
+    {
+      "id": "64",
+      "question": "Do Amazon EBS volumes persist independently from the running life of an Amazon EC2 instance?",
+      "image": "",
+      "reference": "An Amazon EBS volume behaves like a raw, unformatted, external block device that you can attach to a single instance. The volume persists independently from the running life of an Amazon EC2 instance. Reference: http://docs.amazonwebservices.com/AWSEC2/latest/UserGuide/Storage.html",
+      "correct": [
+        "D"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Yes, they do but only if they are detached from the instance."
+        },
+        {
+          "id": "B",
+          "text": "No, you cannot attach EBS volumes to an instance."
+        },
+        {
+          "id": "C",
+          "text": "No, they are dependent."
+        },
+        {
+          "id": "D",
+          "text": "Yes, they do."
+        }
+      ]
+    },
+    {
+      "id": "65",
+      "question": "Your supervisor has asked you to build a simple file synchronization service for your department. He doesn't want to spend too much money and he wants to be notified of any changes to files by email. What do you think would be the best Amazon service to use for the email solution?",
+      "image": "",
+      "reference": "File change notifications can be sent via email to users following the resource with Amazon Simple Email Service (Amazon SES), an easy-to-use, cost- effective email solution. Reference: http://media.amazonwebservices.com/architecturecenter/AWS_ac_ra_filesync_08.pdf",
+      "correct": [
+        "A"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Amazon SES"
+        },
+        {
+          "id": "B",
+          "text": "Amazon CloudSearch"
+        },
+        {
+          "id": "C",
+          "text": "Amazon SWF"
+        },
+        {
+          "id": "D",
+          "text": "Amazon AppStream"
+        }
+      ]
+    },
+    {
+      "id": "66",
+      "question": "A product team is creating a new application that will store a large amount of data. The data will be analyzed hourly and modified by multiple Amazon EC2 Linux instances.The application team believes the amount of space needed will continue to grow for the next 6 months. Which set of actions should a solutions architect take to support these needs'?",
+      "image": "",
+      "reference": "",
+      "correct": [
+        "B"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Store the data in an Amazon EBS volume. Mount the EBS volume on the application instances"
+        },
+        {
+          "id": "B",
+          "text": "Store the data in an Amazon EFS file system. Mount the file system on the application instances."
+        },
+        {
+          "id": "C",
+          "text": "Store the data in Amazon S3 Glacier. Update the vault policy to allow access to the application instances."
+        },
+        {
+          "id": "D",
+          "text": "Store the data in Amazon S3 Standard-Infrequent Access (S3 Standard-IA). Update the bucket policy to allow access to the application instances."
+        }
+      ]
+    },
+    {
+      "id": "67",
+      "question": "A gaming company has multiple Amazon EC2 instances in a single Availability Zone for its multiplayer game that communicates with users on Layer 4. The chief technology officer (CTO) wants to make the architecture highly available and cost-effective. What should a solutions architect do to meet these requirements? (Select TWO.)",
+      "image": "",
+      "reference": "",
+      "correct": [
+        "C",
+        "E"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Increase the number of EC2 instances."
+        },
+        {
+          "id": "B",
+          "text": "Decrease the number of EC2 instances"
+        },
+        {
+          "id": "C",
+          "text": "Configure a Network Load Balancer in front of the EC2 instances."
+        },
+        {
+          "id": "D",
+          "text": "Configure an Application Load Balancer in front of the EC2 instances"
+        },
+        {
+          "id": "E",
+          "text": "Configure an Auto Scaling group to add or remove instances in multiple Availability Zones automatically."
+        }
+      ]
+    },
+    {
+      "id": "68",
+      "question": "A company hosts an application on multiple Amazon EC2 instances. The application processes messages from an Amazon SQS queue writes to an Amazon RDS table and deletes the message from the queue Occasional duplicate records are found in the RDS table. The SQS queue does not contain any duplicate messages. What should a solutions archived do to ensure messages are being processed once only?",
+      "image": "",
+      "reference": "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing ",
+      "correct": [
+        "A"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Use the CreateQueue API call to create a new queue"
+        },
+        {
+          "id": "B",
+          "text": "Use the AddPermission API call to add appropriate permissions"
+        },
+        {
+          "id": "C",
+          "text": "Use the ReceiveMessage API call to set an appropriate wait time."
+        },
+        {
+          "id": "D",
+          "text": "Use the ChangeMessageVisibility API call to increase the visibility timeout"
+        }
+      ]
+    },
+    {
+      "id": "69",
+      "question": "A solutions architect is designing an application for a two-step order process. The first step is synchronous and must return to the user with little latency. The second step takes longer, so it will be implemented in a separate component Orders must be processed exactly once and in the order in which they are received. How should the solutions architect integrate these components?",
+      "image": "",
+      "reference": "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFOqueues.Html",
+      "correct": [
+        "C"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Use Amazon SQS FIFO queues."
+        },
+        {
+          "id": "B",
+          "text": "Use an AWS Lambda function along with Amazon SQS standard queues"
+        },
+        {
+          "id": "C",
+          "text": "Create an SNS topic and subscribe an Amazon SQS FIFO queue to that topic"
+        },
+        {
+          "id": "D",
+          "text": "Create an SNS topic and subscribe an Amazon SQS Standard queue to that topic."
+        }
+      ]
+    },
+    {
+      "id": "70",
+      "question": "A solutions architect is designing a high performance computing (HPC) workload on Amazon EC2. The EC2 instances need to communicate to each other frequently and require network performance with low latency and high throughput. Which EC2 configuration meets these requirements?",
+      "image": "",
+      "reference": "",
+      "correct": [
+        "A"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Launch the EC2 instances in a cluster placement group in one Availability Zone"
+        },
+        {
+          "id": "B",
+          "text": "Launch the EC2 instances in a spread placement group in one Availability Zone"
+        },
+        {
+          "id": "C",
+          "text": "Launch the EC2 instances in an Auto Scaling group in two Regions and peer the VPCs"
+        },
+        {
+          "id": "D",
+          "text": "Launch the EC2 instances in an Auto Scaling group spanning multiple Availability Zones"
+        }
+      ]
+    },
+    {
+      "id": "71",
+      "question": "A company is planning to use Amazon S3 lo store images uploaded by its users. The images must be encrypted at rest in Amazon S3. The company does not want to spend time managing and rotating the keys, but it does want to control who can access those keys. What should a solutions architect use to accomplish this?",
+      "image": "",
+      "reference": "",
+      "correct": [
+        "C"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Server-Side Encryption with keys stored in an S3 bucket"
+        },
+        {
+          "id": "B",
+          "text": "Server-Side Encryption with Customer-Provided Keys (SSE-C)"
+        },
+        {
+          "id": "C",
+          "text": "Server-Side Encryption with Amazon S3-Managed Keys (SSE-S3)"
+        },
+        {
+          "id": "D",
+          "text": "Server-Side Encryption with AWS KMS-Managed Keys (SSE-KMS)"
+        }
+      ]
+    },
+    {
+      "id": "72",
+      "question": "An Amazon EC2 administrator created the following policy associated with an 1AM group containing several users. What is the effect of this policy?",
+      "image": "",
+      "reference": "",
+      "correct": [
+        "C"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Users can terminate an EC2 instance in any AWS Region except us-east-1."
+        },
+        {
+          "id": "B",
+          "text": "Users can terminate an EC2 instance with the IP address 10.100. 1001 in the us-east-1 Region."
+        },
+        {
+          "id": "C",
+          "text": "Users can terminate an EC2 instance in the us-east-1 Region when the user's source IP is 10.100.100.254."
+        },
+        {
+          "id": "D",
+          "text": "Users cannot terminate an EC2 instance in the us-east-1 Region when the user's source IP is 10.100.100.254."
+        }
+      ]
+    },
+    {
+      "id": "73",
+      "question": "A company is running an ecommerce application on Amazon EC2. The application consists of a stateless web tier that requires a minimum of 10 instances, and a peak of 250 instances to support the application's usage. The application requires 50 instances 80% of the time. Which solution should be used to minimize costs?",
+      "image": "",
+      "reference": "",
+      "correct": [
+        "D"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Purchase Reserved Instances to cover 250 instances "
+        },
+        {
+          "id": "B",
+          "text": "Purchase Reserved Instances to cover 80 instances. Use Spot Instances to cover the remaining instances "
+        },
+        {
+          "id": "C",
+          "text": "Purchase On-Demand Instances to cover 40 instances. Use Spot Instances to cover the remaining instances "
+        },
+        {
+          "id": "D",
+          "text": "Purchase Reserved Instances to cover 50 instances. Use On-Demand and Spot Instances to cover the remaining instances "
+        }
+      ]
+    },
+    {
+      "id": "74",
+      "question": "Does DynamoDB support in-place atomic updates?",
+      "image": "",
+      "reference": "DynamoDB supports in-place atomic updates.",
+      "correct": [
+        "A"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Yes"
+        },
+        {
+          "id": "B",
+          "text": "No"
+        },
+        {
+          "id": "C",
+          "text": "It does support in-place non-atomic updates"
+        },
+        {
+          "id": "D",
+          "text": "It is not defined"
+        }
+      ]
+    },
+    {
+      "id": "75",
+      "question": "Your manager has just given you access to multiple VPN connections that someone else has recently set up between all your company's offices. She needs you to make sure that the communication between the VPNs is secure. Which of the following services would be best for providing a low-cost hub-and-spoke model for primary or backup connectivity between these remote offices?",
+      "image": "",
+      "reference": "If you have multiple VPN connections, you can provide secure communication between sites using the AWS VPN CloudHub. The VPN CloudHub operates on a simple hub-and-spoke model that you can use with or without a VPC. This design is suitable for customers with multiple branch offices and existing Internet connections who would like to implement a convenient, potentially low-cost hub-and-spoke model for primary or backup connectivity between these remote offices. Reference: http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPN_CloudHub.html",
+      "correct": [
+        "D"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Amazon CloudFront"
+        },
+        {
+          "id": "B",
+          "text": "AWS Direct Connect"
+        },
+        {
+          "id": "C",
+          "text": "AWS CloudHSM"
+        },
+        {
+          "id": "D",
+          "text": "AWS VPN CloudHub"
+        }
+      ]
+    },
+    {
+      "id": "76",
+      "question": "Amazon EC2 provides a ____. It is an HTTP or HTTPS request that uses the HTTP verbs GET or POST.",
+      "image": "",
+      "reference": "Amazon EC2 provides a Query API. These requests are HTTP or HTTPS requests that use the HTTP verbs GET or POST and a Query parameter named Action. Reference: http://docs.aws.amazon.com/AWSEC2/latest/APIReference/making-api-requests.html ",
+      "correct": [
+        "C"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "web database"
+        },
+        {
+          "id": "B",
+          "text": ".net framework"
+        },
+        {
+          "id": "C",
+          "text": "Query API"
+        },
+        {
+          "id": "D",
+          "text": "C library"
+        }
+      ]
+    },
+    {
+      "id": "77",
+      "question": "In Amazon AWS, which of the following statements is true of key pairs?",
+      "image": "",
+      "reference": "Key pairs consist of a public and private key, where you use the private key to create a digital signature, and then AWS uses the corresponding public key to validate the signature. Key pairs are used only for Amazon EC2 and Amazon CloudFront. Reference: http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html",
+      "correct": [
+        "B"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Key pairs are used only for Amazon SDKs."
+        },
+        {
+          "id": "B",
+          "text": "Key pairs are used only for Amazon EC2 and Amazon CloudFront."
+        },
+        {
+          "id": "C",
+          "text": "Key pairs are used only for Elastic Load Balancing and AWS IAM."
+        },
+        {
+          "id": "D",
+          "text": "Key pairs are used for all Amazon services."
+        }
+      ]
+    },
+    {
+      "id": "78",
+      "question": "Does Amazon DynamoDB support both increment and decrement atomic operations?",
+      "image": "",
+      "reference": "Amazon DynamoDB supports increment and decrement atomic operations. Reference: http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/APISummary.html",
+      "correct": [
+        "C"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Only increment, since decrement are inherently impossible with DynamoDB's data model."
+        },
+        {
+          "id": "B",
+          "text": "No, neither increment nor decrement operations."
+        },
+        {
+          "id": "C",
+          "text": "Yes, both increment and decrement operations."
+        },
+        {
+          "id": "D",
+          "text": "Only decrement, since increment are inherently impossible with DynamoDB's data model."
+        }
+      ]
+    },
+    {
+      "id": "79",
+      "question": "An organization has three separate AWS accounts, one each for development, testing, and production. The organization wants the testing team to have access to certain AWS resources in the production account. How can the organization achieve this?",
+      "image": "",
+      "reference": "An organization has multiple AWS accounts to isolate a development environment from a testing or production environment. At times the users from one account need to access resources in the other account, such as promoting an update from the development environment to the production environment. In this case the IAM role with cross account access will provide a solution. Cross account access lets one account share access to their resources with users in the other AWS accounts. Reference: http://media.amazonwebservices.com/AWS_Security_Best_Practices.pdf",
+      "correct": [
+        "B"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "It is not possible to access resources of one account with another account."
+        },
+        {
+          "id": "B",
+          "text": "Create the IAM roles with cross account access."
+        },
+        {
+          "id": "C",
+          "text": "Create the IAM user in a test account, and allow it access to the production environment with the IAM policy."
+        },
+        {
+          "id": "D",
+          "text": "Create the IAM users with cross account access."
+        }
+      ]
+    },
+    {
+      "id": "80",
+      "question": "You need to import several hundred megabytes of data from a local Oracle database to an Amazon RDS DB instance. What does AWS recommend you use to accomplish this?",
+      "image": "",
+      "reference": "How you import data into an Amazon RDS DB instance depends on the amount of data you have and the number and variety of database objects in your database. For example, you can use Oracle SQL Developer to import a simple, 20 MB database; you want to use Oracle Data Pump to import complex databases or databases that are several hundred megabytes or several terabytes in size. Reference: http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Oracle.Procedural.Importing.html",
+      "correct": [
+        "C"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Oracle export/import utilities"
+        },
+        {
+          "id": "B",
+          "text": "Oracle SQL Developer"
+        },
+        {
+          "id": "C",
+          "text": "Oracle Data Pump"
+        },
+        {
+          "id": "D",
+          "text": "DBMS_FILE_TRANSFER"
+        }
+      ]
+    },
+    {
+      "id": "81",
+      "question": "A user has created an EBS volume with 1000 IOPS. What is the average IOPS that the user will get for most of the year as per EC2 SLA if the instance is attached to the EBS optimized instance?",
+      "image": "",
+      "reference": "As per AWS SLA if the instance is attached to an EBS-Optimized instance, then the Provisioned IOPS volumes are designed to deliver within 10% of the provisioned IOPS performance 99.9% of the time in a given year. Thus, if the user has created a volume of 1000 IOPS, the user will get a minimum 900 IOPS 99.9% time of the year. Reference: http://aws.amazon.com/ec2/faqs/",
+      "correct": [
+        "D"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "950"
+        },
+        {
+          "id": "B",
+          "text": "990"
+        },
+        {
+          "id": "C",
+          "text": "1000"
+        },
+        {
+          "id": "D",
+          "text": "900"
+        }
+      ]
+    },
+    {
+      "id": "82",
+      "question": "You need to migrate a large amount of data into the cloud that you have stored on a hard disk and you decide that the best way to accomplish this is with AWS Import/Export and you mail the hard disk to AWS. Which of the following statements is incorrect in regards to AWS Import/Export?",
+      "image": "",
+      "reference": "AWS Import/Export supports: Import to Amazon S3 Export from Amazon S3 Import to Amazon EBS Import to Amazon Glacier AWS Import/Export does not currently support export from Amazon EBS or Amazon Glacier. Reference: https://docs.aws.amazon.com/AWSImportExport/latest/DG/whatisdisk.html",
+      "correct": [
+        "C"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "It can export from Amazon S3"
+        },
+        {
+          "id": "B",
+          "text": "It can Import to Amazon Glacier"
+        },
+        {
+          "id": "C",
+          "text": "It can export from Amazon Glacier."
+        },
+        {
+          "id": "D",
+          "text": "It can Import to Amazon EBS"
+        }
+      ]
+    },
+    {
+      "id": "83",
+      "question": "You are in the process of creating a Route 53 DNS failover to direct traffic to two EC2 zones. Obviously, if one fails, you would like Route 53 to direct traffic to the other region. Each region has an ELB with some instances being distributed. What is the best way for you to configure the Route 53 health check?",
+      "image": "",
+      "reference": "With DNS Failover, Amazon Route 53 can help detect an outage of your website and redirect your end users to alternate locations where your application is operating properly. When you enable this feature, Route 53 uses health checks--regularly making Internet requests to your application's endpoints from multiple locations around the world--to determine whether each endpoint of your application is up or down. To enable DNS Failover for an ELB endpoint, create an Alias record pointing to the ELB and set the \"Evaluate Target Health\" parameter to true. Route 53 creates and manages the health checks for your ELB automatically. You do not need to create your own Route 53 health check of the ELB. You also do not need to associate your resource record set for the ELB with your own health check, because Route 53 automatically associates it with the health checks that Route 53 manages on your behalf. The ELB health check will also inherit the health of your backend instances behind that ELB. Reference: http://aws.amazon.com/about-aws/whats-new/2013/05/30/amazon-route-53-adds-elb- integration-for-dns- failover/",
+      "correct": [
+        "D"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Route 53 doesn't support ELB with an internal health check.You need to create your own Route 53 health check of the ELB"
+        },
+        {
+          "id": "B",
+          "text": "Route 53 natively supports ELB with an internal health check. Turn \"Evaluate target health\" off and \"Associate with Health Check\" on and R53 will use the ELB's internal health check."
+        },
+        {
+          "id": "C",
+          "text": "Route 53 doesn't support ELB with an internal health check. You need to associate your resource record set for the ELB with your own health check"
+        },
+        {
+          "id": "D",
+          "text": "Route 53 natively supports ELB with an internal health check. Turn \"Evaluate target health\" on and \"Associate with Health Check\" off and R53 will use the ELB's internal health check."
+        }
+      ]
+    },
+    {
+      "id": "84",
+      "question": "A user wants to use an EBS-backed Amazon EC2 instance for a temporary job. Based on the input data, the job is most likely to finish within a week. Which of the following steps should be followed to terminate the instance automatically once the job is finished?",
+      "image": "",
+      "reference": "Auto Scaling can start and stop the instance at a pre-defined time. Here, the total running time is unknown. Thus, the user has to use the CloudWatch alarm, which monitors the CPU utilization. The user can create an alarm that is triggered when the average CPU utilization percentage has been lower than 10 percent for 24 hours, signaling that it is idle and no longer in use. When the utilization is below the threshold limit, it will terminate the instance as a part of the instance action. Reference: http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/UsingAlarmActions.html",
+      "correct": [
+        "C"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Configure the EC2 instance with a stop instance to terminate it."
+        },
+        {
+          "id": "B",
+          "text": "Configure the EC2 instance with ELB to terminate the instance when it remains idle."
+        },
+        {
+          "id": "C",
+          "text": "Configure the CloudWatch alarm on the instance that should perform the termination action once the instance is idle."
+        },
+        {
+          "id": "D",
+          "text": "Configure the Auto Scaling schedule activity that terminates the instance after 7 days."
+        }
+      ]
+    },
+    {
+      "id": "85",
+      "question": "Which of the following is true of Amazon EC2 security group?",
+      "image": "",
+      "reference": "A security group acts as a virtual firewall that controls the traffic for one or more instances. When you launch an instance, you associate one or more security groups with the instance. You add rules to each security group that allow traffic to or from its associated instances. You can modify the rules for a security group at any time; the new rules are automatically applied to all instances that are associated with the security group. Reference: http://docs.amazonwebservices.com/AWSEC2/latest/UserGuide/using-network- security.html",
+      "correct": [
+        "D"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "You can modify the outbound rules for EC2-Classic."
+        },
+        {
+          "id": "B",
+          "text": "You can modify the rules for a security group only if the security group controls the traffic for just one instance."
+        },
+        {
+          "id": "C",
+          "text": "You can modify the rules for a security group only when a new instance is created."
+        },
+        {
+          "id": "D",
+          "text": "You can modify the rules for a security group at any time."
+        }
+      ]
+    },
+    {
+      "id": "86",
+      "question": "An Elastic IP address (EIP) is a static IP address designed for dynamic cloud computing. With an EIP, you can mask the failure of an instance or software by rapidly remapping the address to another instance in your account. Your EIP is associated with your AWS account, not a particular EC2 instance, and it remains associated with your account until you choose to explicitly release it. By default how many EIPs is each AWS account limited to on a per region basis?",
+      "image": "",
+      "reference": "By default, all AWS accounts are limited to 5 Elastic IP addresses per region for each AWS account, because public (IPv4) Internet addresses are a scarce public resource. AWS strongly encourages you to use an EIP primarily for load balancing use cases, and use DNS hostnames for all other inter- node communication. If you feel your architecture warrants additional EIPs, you would need to complete the Amazon EC2 Elastic IP Address Request Form and give reasons as to your need for additional addresses. Reference: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses- eip.html#using-instance-ad dressing-limit",
+      "correct": [
+        "B"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "1"
+        },
+        {
+          "id": "B",
+          "text": "5"
+        },
+        {
+          "id": "C",
+          "text": "Unlimited"
+        },
+        {
+          "id": "D",
+          "text": "10"
+        }
+      ]
+    },
+    {
+      "id": "87",
+      "question": "An application running on AWS uses an Amazon Aurora Multi-AZ deployment for its database. When evaluating performance metrics, a solutions architect discovered that the database reads are causing high I/O and adding latency to the write requests against the database. What should the solutions architect do to separate the read requests from the write requests?",
+      "image": "",
+      "reference": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html",
+      "correct": [
+        "C"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Enable read-through caching on the Amazon Aurora database"
+        },
+        {
+          "id": "B",
+          "text": "Update the application to read from the Multi-AZ standby instance"
+        },
+        {
+          "id": "C",
+          "text": "Create a read replica and modify the application to use the appropriate endpoint"
+        },
+        {
+          "id": "D",
+          "text": "Create a second Amazon Aurora database and link it to the primary database as a read replica."
+        }
+      ]
+    },
+    {
+      "id": "88",
+      "question": "An application runs on Amazon EC2 instances across multiple Availability Zones. The instances run in an Amazon EC2 Auto Scaling group behind an Application Load Balancer. The application performs best when the CPU utilization of the EC2 instances is at or near 40%. What should a solutions architect do to maintain the desired performance across all instances m the group?",
+      "image": "",
+      "reference": "https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scalingscheduled-scaling.html",
+      "correct": [
+        "D"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Use a simple scaling policy to dynamically scale the Auto Scaling group"
+        },
+        {
+          "id": "B",
+          "text": "Use a target tracking policy to dynamically scale the Auto Scaling group"
+        },
+        {
+          "id": "C",
+          "text": "Use an AWS Lambda function to update the desired Auto Scaling group capacity"
+        },
+        {
+          "id": "D",
+          "text": "Use scheduled scaling actions to scale up and scale down the Auto Scaling group"
+        }
+      ]
+    },
+    {
+      "id": "89",
+      "question": "A company runs a multi-tier web application that hosts news content. The application runs on Amazon EC2 instances behind an Application Load Balancer. The instances run in an EC2 Auto Scaling group across multiple Availability Zones and use an Amazon Aurora database. A solutions architect needs to make the application more resilient to periodic increases in request rates. Which architecture should the solutions architect implement? (Select TWO )",
+      "image": "",
+      "reference": "",
+      "correct": [
+        "D",
+        "E"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Add AWS Shield."
+        },
+        {
+          "id": "B",
+          "text": "Add Aurora Replicas"
+        },
+        {
+          "id": "C",
+          "text": "Add AWS Direct Connect"
+        },
+        {
+          "id": "D",
+          "text": "Add AWS Global Accelerator."
+        },
+        {
+          "id": "E",
+          "text": "Add an Amazon CloudFront distribution in front of the Application Load Balancer"
+        }
+      ]
+    },
+    {
+      "id": "90",
+      "question": "A solutions architect is optimizing a website for an upcoming musical event Videos of the performances will be streamed in real time and then will be available on demand. The event is expected to attract a global online audience. Which service will improve the performance of both the real-time and on-demand streaming?",
+      "image": "",
+      "reference": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/on-demand-streaming-video.html",
+      "correct": [
+        "A"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Amazon CloudFront"
+        },
+        {
+          "id": "B",
+          "text": "AWS Global Accelerator"
+        },
+        {
+          "id": "C",
+          "text": "Amazon Route 53"
+        },
+        {
+          "id": "D",
+          "text": "Amazon S3 Transfer Acceleration"
+        }
+      ]
+    },
+    {
+      "id": "91",
+      "question": "A company serves content to its subscribers across the world using an application running on AWS. The application has several Amazon EC2 instances in a private subnet behind an Application Load Balancer (ALB). Due to a recent change in copyright restrictions the chief information officer (CIO) wants to block access for certain countries. Which action will meet these requirements?",
+      "image": "",
+      "reference": "",
+      "correct": [
+        "C"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Modify the ALB security group to deny incoming traffic from blocked countries"
+        },
+        {
+          "id": "B",
+          "text": "Modify the security group for EC2 instances to deny incoming traffic from blocked countries"
+        },
+        {
+          "id": "C",
+          "text": "Use Amazon CloudFront to serve the application and deny access to blocked countries"
+        },
+        {
+          "id": "D",
+          "text": "Use ALB listener rules to return access denied responses to incoming traffic from blocked countries"
+        }
+      ]
+    },
+    {
+      "id": "92",
+      "question": "A manufacturing company wants to implement predictive maintenance on its machinery equipment. The company will install thousands of loT sensors that will send data to AWS in real time. A solutions architect is tasked with implementing a solution that will receive events in an ordered manner for each machinery asset and ensure that data is saved for further processing at a later time. Which solution would be MOST efficient?",
+      "image": "",
+      "reference": "",
+      "correct": [
+        "A"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Use Amazon Kinesis Data Streams for real-time events with a partition for each equipment asset. Use Amazon Kinesis Data Firehose to save data to Amazon S3."
+        },
+        {
+          "id": "B",
+          "text": "Use Amazon Kinesis Data Streams for real-time events with a shard for each equipment asset. Use Amazon Kinesis Data Firehose to save data to Amazon EBS."
+        },
+        {
+          "id": "C",
+          "text": "Use an Amazon SQS FIFO queue for real-time events with one queue for each equipment asset. Trigger an AWS Lambda function for the SQS queue to save data to Amazon EFS."
+        },
+        {
+          "id": "D",
+          "text": "Use an Amazon SQS standard queue for real-time events with one queue for each equipment asset. Trigger an AWS Lambda function from the SQS queue to save data to Amazon S3."
+        }
+      ]
+    },
+    {
+      "id": "93",
+      "question": "A company has deployed an API in a VPC behind an internet-facing Application Load Balancer (ALB). An application that consumes the API as a client is deployed in a second account in private subnets behind a NAT gateway. When requests to the client application increase, the NAT gateway costs are higher than expected. A solutions architect has configured the ALB to be internal. Which combination of architectural changes will reduce the NAT gateway costs'? (Select TWO )",
+      "image": "",
+      "reference": "",
+      "correct": [
+        "D",
+        "E"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Configure a VPC peering connection between the two VPCs. Access the API using the private address"
+        },
+        {
+          "id": "B",
+          "text": "Configure an AWS Direct Connect connection between the two VPCs. Access the API using the private address."
+        },
+        {
+          "id": "C",
+          "text": "Configure a ClassicLink connection for the API into the client VPC. Access the API using the ClassicLink address."
+        },
+        {
+          "id": "D",
+          "text": "Configure a PrivateLink connection for the API into the client VPC. Access the API using the PrivateLink address."
+        },
+        {
+          "id": "E",
+          "text": "Configure an AWS Resource Access Manager connection between the two accounts. Access the API using the private address"
+        }
+      ]
+    },
+    {
+      "id": "94",
+      "question": "In Amazon EC2, partial instance-hours are billed _____.",
+      "image": "",
+      "reference": "Partial instance-hours are billed to the next hour. Reference: http://aws.amazon.com/ec2/faqs/",
+      "correct": [
+        "D"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "per second used in the hour"
+        },
+        {
+          "id": "B",
+          "text": "per minute used"
+        },
+        {
+          "id": "C",
+          "text": "by combining partial segments into full hours"
+        },
+        {
+          "id": "D",
+          "text": "as full hours"
+        }
+      ]
+    },
+    {
+      "id": "95",
+      "question": "In EC2, what happens to the data in an instance store if an instance reboots (either intentionally or unintentionally)?",
+      "image": "",
+      "reference": "The data in an instance store persists only during the lifetime of its associated instance. If an instance reboots (intentionally or unintentionally), data in the instance store persists. However, data on instance store volumes is lost under the following circumstances. Failure of an underlying drive Stopping an Amazon EBS-backed instance Terminating an instance Reference: http://docs.amazonwebservices.com/AWSEC2/latest/UserGuide/InstanceStorage.html",
+      "correct": [
+        "B"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Data is deleted from the instance store for security reasons."
+        },
+        {
+          "id": "B",
+          "text": "Data persists in the instance store."
+        },
+        {
+          "id": "C",
+          "text": "Data is partially present in the instance store."
+        },
+        {
+          "id": "D",
+          "text": "Data in the instance store will be lost."
+        }
+      ]
+    },
+    {
+      "id": "96",
+      "question": "You are setting up a VPC and you need to set up a public subnet within that VPC. Which following requirement must be met for this subnet to be considered a public subnet?",
+      "image": "",
+      "reference": "A virtual private cloud (VPC) is a virtual network dedicated to your AWS account. It is logically isolated from other virtual networks in the AWS cloud. You can launch your AWS resources, such as Amazon EC2 instances, into your VPC. You can configure your VPC: you can select its IP address range, create subnets, and configure route tables, network gateways, and security settings. A subnet is a range of IP addresses in your VPC. You can launch AWS resources into a subnet that you select. Use a public subnet for resources that must be connected to the internet, and a private subnet for resources that won't be connected to the Internet. If a subnet's traffic is routed to an internet gateway, the subnet is known as a public subnet. If a subnet doesn't have a route to the internet gateway, the subnet is known as a private subnet. If a subnet doesn't have a route to the internet gateway, but has its traffic routed to a virtual private gateway, the subnet is known as a VPN-only subnet. Reference: http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html",
+      "correct": [
+        "B"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Subnet's traffic is not routed to an internet gateway but has its traffic routed to a virtual private gateway."
+        },
+        {
+          "id": "B",
+          "text": "Subnet's traffic is routed to an internet gateway."
+        },
+        {
+          "id": "C",
+          "text": "Subnet's traffic is not routed to an internet gateway."
+        },
+        {
+          "id": "D",
+          "text": "None of these answers can be considered a public subnet."
+        }
+      ]
+    },
+    {
+      "id": "97",
+      "question": "Can you specify the security group that you created for a VPC when you launch an instance in EC2-Classic?",
+      "image": "",
+      "reference": "If you're using EC2-Classic, you must use security groups created specifically for EC2-Classic. When you launch an instance in EC2-Classic, you must specify a security group in the same region as the instance. You can't specify a security group that you created for a VPC when you launch an instance in EC2-Classic. Reference: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html#ec2-classic-securit y-groups",
+      "correct": [
+        "B"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "No, you can specify the security group created for EC2-Classic when you launch a VPC instance."
+        },
+        {
+          "id": "B",
+          "text": "No"
+        },
+        {
+          "id": "C",
+          "text": "Yes"
+        },
+        {
+          "id": "D",
+          "text": "No, you can specify the security group created for EC2-Classic to a non-VPC based instance only."
+        }
+      ]
+    },
+    {
+      "id": "98",
+      "question": "While using the EC2 GET requests as URLs, the _____ is the URL that serves as the entry point for the web service.",
+      "image": "",
+      "reference": "The endpoint is the URL that serves as the entry point for the web service. Reference: http://docs.amazonwebservices.com/AWSEC2/latest/UserGuide/using-query-api.html",
+      "correct": [
+        "B"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "token"
+        },
+        {
+          "id": "B",
+          "text": "endpoint"
+        },
+        {
+          "id": "C",
+          "text": "action"
+        },
+        {
+          "id": "D",
+          "text": "None of these"
+        }
+      ]
+    },
+    {
+      "id": "99",
+      "question": "You have been asked to build a database warehouse using Amazon Redshift. You know a little about it, including that it is a SQL data warehouse solution, and uses industry standard ODBC and JDBC connections and PostgreSQL drivers. However you are not sure about what sort of storage it uses for database tables. What sort of storage does Amazon Redshift use for database tables?",
+      "image": "",
+      "reference": "Amazon Redshift achieves efficient storage and optimum query performance through a combination of massively parallel processing, columnar data storage, and very efficient, targeted data compression encoding schemes. Columnar storage for database tables is an important factor in optimizing analytic query performance because it drastically reduces the overall disk I/O requirements and reduces the amount of data you need to load from disk. Reference: http://docs.aws.amazon.com/redshift/latest/dg/c_columnar_storage_disk_mem_mgmnt.html",
+      "correct": [
+        "C"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "InnoDB Tables"
+        },
+        {
+          "id": "B",
+          "text": "NDB data storage"
+        },
+        {
+          "id": "C",
+          "text": "Columnar data storage"
+        },
+        {
+          "id": "D",
+          "text": "NDB CLUSTER Storage"
+        }
+      ]
+    },
+    {
+      "id": "100",
+      "question": "You are checking the workload on some of your General Purpose (SSD) and Provisioned IOPS (SSD) volumes and it seems that the I/O latency is higher than you require. You should probably check the _____________ to make sure that your application is not trying to drive more IOPS than you have provisioned.",
+      "image": "",
+      "reference": "In EBS workload demand plays an important role in getting the most out of your General Purpose (SSD) and Provisioned IOPS (SSD) volumes. In order for your volumes to deliver the amount of IOPS that are available, they need to have enough I/O requests sent to them. There is a relationship between the demand on the volumes, the amount of IOPS that are available to them, and the latency of the request (the amount of time it takes for the I/O operation to complete). Latency is the true end-to-end client time of an I/O operation; in other words, when the client sends a IO, how long does it take to get an acknowledgement from the storage subsystem that the IO read or write is complete. If your I/O latency is higher than you require, check your average queue length to make sure that your application is not trying to drive more IOPS than you have provisioned. You can maintain high IOPS while keeping latency down by maintaining a low average queue length (which is achieved by provisioning more IOPS for your volume). Reference: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-workload-demand.html",
+      "correct": [
+        "C"
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Amount of IOPS that are available"
+        },
+        {
+          "id": "B",
+          "text": "Acknowledgement from the storage subsystem"
+        },
+        {
+          "id": "C",
+          "text": "Average queue length"
+        },
+        {
+          "id": "D",
+          "text": "Time it takes for the I/O operation to complete"
+        }
+      ]
     }
   ]
 }
