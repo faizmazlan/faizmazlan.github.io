@@ -5895,7 +5895,7 @@ jQuery(document).ready(function ($) {
         $(document.createElement('div')).addClass('col').attr('id', 'QuizStartCol13').appendTo('#QuizStartRow1');
         $(document.createElement('button')).addClass('btn btn-block btn-outline-secondary').attr('id', 'ButtonRevisit').text('Revisit').appendTo('#QuizStartCol12');
         $('#ButtonRevisit').on('click', function () {
-            startQuiz(0);
+            startQuiz(QuizCurrentQuestions);
         });
         $(document.createElement('button')).addClass('btn btn-block btn-primary').attr('id', 'ButtonStart').text('Start Over').appendTo('#QuizStartCol12');
         $('#ButtonStart').on('click', function () {
