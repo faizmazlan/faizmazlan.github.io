@@ -46,19 +46,19 @@
       "choices": [
         {
           "id": "A",
-          "text": "Create an Amazon S3 bucket for the application and establish an 1AM role for Fargate to communicate with Amazon S3."
+          "text": "Create an Amazon S3 bucket for the application and establish an IAM role for Fargate to communicate with Amazon S3."
         },
         {
           "id": "B",
-          "text": "Create an Amazon FSx for Lustre file share and establish an 1AM role that allows Fargate to communicate with FSx for Lustre."
+          "text": "Create an Amazon FSx for Lustre file share and establish an IAM role that allows Fargate to communicate with FSx for Lustre."
         },
         {
           "id": "C",
-          "text": "Create an Amazon Elastic File System (Amazon EFS) file share and establish an 1AM role that allows Fargate to communicate with Amazon EFS."
+          "text": "Create an Amazon Elastic File System (Amazon EFS) file share and establish an IAM role that allows Fargate to communicate with Amazon EFS."
         },
         {
           "id": "D",
-          "text": "Create an Amazon Elastic Block Store (Amazon EBS) volume for the application and establish an 1AM role that allows Fargate to communicate with"
+          "text": "Create an Amazon Elastic Block Store (Amazon EBS) volume for the application and establish an IAM role that allows Fargate to communicate with"
         }
       ]
     },
@@ -871,19 +871,19 @@
       "choices": [
         {
           "id": "A",
-          "text": "Point a Route 53 alias record to an Amazon CloudFront distribution with the ALB as one of its origins. Then, create custom error pages for the distribution."
+          "text": "Create an Amazon SNS topic to send the jobs that need to be processed. Create an Amazon Machine Image (AMI) that consists of the processor application. Create a launch configuration that uses the AMI. Create an Auto Scaling group using the launch configuration. Set the scaling policy for the Auto Scaling group to add and remove nodes based on CPU usage"
         },
         {
           "id": "B",
-          "text": "Set up a Route 53 active-passive failover configuration. Direct traffic to a static error page hosted within an Amazon S3 bucket when Route 53 health checks determine that the ALB endpoint is unhealthy."
+          "text": "Create an Amazon SQS queue to hold the jobs that need to be processed. Create an Amazon Machine Image (AMI) that consists of the processor application. Create a launch configuration that uses the AMI. Create an Auto Scaling group using the launch configuration. Set the scaling policy for the Auto Scaling group to add and remove nodes based on network usage"
         },
         {
           "id": "C",
-          "text": "Update the Route 53 record to use a latency-based routing policy. Add the backup static error page hosted within an Amazon S3 bucket to the record so the traffic is sent to the most responsive endpoints."
+          "text": "Create an Amazon SQS queue to hold the jobs that needs to be processed. Create an Amazon Machine Image (AMI) that consists of the processor application. Create a launch template that uses the AMI. Create an Auto Scaling group using the launch template. Set the scaling policy for the Auto Scaling group to add and remove nodes based on the number of items in the SQS queue"
         },
         {
           "id": "D",
-          "text": "Set up a Route 53 active-active configuration with the ALB and an Amazon EC2 instance hosting a static error page as endpoints. Route 53 will only send requests to the instance if the health checks fail for the ALB."
+          "text": "Create an Amazon SNS topic to send the jobs that need to be processed. Create an Amazon Machine Image (AMI) that consists of the processor application. Create a launch template that uses the AMI. Create an Auto Scaling group using the launch template. Set the scaling policy for the Auto Scaling group to add and remove nodes based on the number of messages published to the SNS topic."
         }
       ]
     },
@@ -1493,7 +1493,7 @@
     },
     {
       "id": "55",
-      "question": "A company allows its developers to attach existing 1AM policies to existing 1AM roles to enable faster experimentation and agility. However the security operations team is concerned that the developers could attach the existing administrator policy, which would allow the developers to circumvent any other security policies. How should a solutions architect address this issue?",
+      "question": "A company allows its developers to attach existing IAM policies to existing IAM roles to enable faster experimentation and agility. However the security operations team is concerned that the developers could attach the existing administrator policy, which would allow the developers to circumvent any other security policies. How should a solutions architect address this issue?",
       "image": "",
       "reference": "",
       "correct": [
@@ -1510,11 +1510,11 @@
         },
         {
           "id": "C",
-          "text": "Prevent the developers from attaching any policies and assign all 1AM duties to the security operations team"
+          "text": "Prevent the developers from attaching any policies and assign all IAM duties to the security operations team"
         },
         {
           "id": "D",
-          "text": "Set an IAM permissions boundary on the developer 1AM role that explicitly denies attaching the administrator policy"
+          "text": "Set an IAM permissions boundary on the developer IAM role that explicitly denies attaching the administrator policy"
         }
       ]
     },
@@ -1709,7 +1709,7 @@
     },
     {
       "id": "63",
-      "question": "Which of the following statements is true in regards to ElasticCache?",
+      "question": "You are looking at ways to improve some existing infrastructure as it seems a lot of engineering resources are being taken up with basic management and monitoring tasks and the costs seem to be excessive. You are thinking of deploying Amazon ElasticCache to help. Which of the following statements is true in regards to ElasticCache?",
       "image": "",
       "reference": "Amazon ElastiCache is a web service that makes it easy to deploy and run Memcached or Redis protocol-compliant server nodes in the cloud. Amazon ElastiCache improves the performance of web applications by allowing you to retrieve information from a fast, managed, in-memory caching system, instead of relying entirely on slower disk-based databases. The service simplifies and offloads the management, monitoring and operation of in-memory cache environments, enabling your engineering resources to focus on developing applications. Using Amazon ElastiCache, you can not only improve load and response times to user actions and queries, but also reduce the cost associated with scaling web applications. Reference: https://aws.amazon.com/elasticache/faqs/",
       "correct": [
@@ -1718,22 +1718,18 @@
       "choices": [
         {
           "id": "A",
-          "text": "You are looking at ways to improve some existing infrastructure as it seems a lot of engineering resources are being taken up with basic management and monitoring tasks and the costs seem to be excessive. You are thinking of deploying Amazon ElasticCache to help. Which of the following statements is true in regards to ElasticCache?"
-        },
-        {
-          "id": "B",
           "text": "You can improve load and response times to user actions and queries however the cost associated with scaling web applications will be more."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "You can't improve load and response times to user actions and queries but you can reduce the cost associated with scaling web applications."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "You can improve load and response times to user actions and queries however the cost associated with scaling web applications will remain the same."
         },
         {
-          "id": "E",
+          "id": "D",
           "text": "You can improve load and response times to user actions and queries and also reduce the cost associated with scaling web applications."
         }
       ]
@@ -1961,8 +1957,8 @@
     },
     {
       "id": "72",
-      "question": "An Amazon EC2 administrator created the following policy associated with an 1AM group containing several users. What is the effect of this policy?",
-      "image": "",
+      "question": "An Amazon EC2 administrator created the following policy associated with an IAM group containing several users. What is the effect of this policy?",
+      "image": "img/question-72.png",
       "reference": "",
       "correct": [
         "C"
@@ -3376,7 +3372,7 @@
         },
         {
           "id": "C",
-          "text": "Attach an 1AM policy to the bucket"
+          "text": "Attach an IAM policy to the bucket"
         },
         {
           "id": "D",
@@ -4106,8 +4102,8 @@
     },
     {
       "id": "150",
-      "question": "A solution architect has created two IAM policies: Policy1 and Policy2. Both policies are attached to an IAM group. A cloud engineer is added as an 1AM user to the 1AM group. Which action will the cloud engineer be able to perform?",
-      "image": "",
+      "question": "A solution architect has created two IAM policies: Policy1 and Policy2. Both policies are attached to an IAM group. A cloud engineer is added as an IAM user to the IAM group. Which action will the cloud engineer be able to perform?",
+      "image": "img/question-150.png",
       "reference": "",
       "correct": [
         "B"
@@ -4115,7 +4111,7 @@
       "choices": [
         {
           "id": "A",
-          "text": "Deleting 1AM users"
+          "text": "Deleting IAM users"
         },
         {
           "id": "B",
@@ -4317,7 +4313,7 @@
         },
         {
           "id": "D",
-          "text": "Create and assign 1AM roles that will grant GetObject permissions to the users."
+          "text": "Create and assign IAM roles that will grant GetObject permissions to the users."
         }
       ]
     },
@@ -4376,7 +4372,7 @@
         },
         {
           "id": "E",
-          "text": "Create a new 1AM role and associate the role with the distribution. Change the permissions either on the S3 bucket or on the files within the S3 bucket so that only the newly created 1AM role has read and download permissions."
+          "text": "Create a new IAM role and associate the role with the distribution. Change the permissions either on the S3 bucket or on the files within the S3 bucket so that only the newly created IAM role has read and download permissions."
         }
       ]
     },
@@ -4445,11 +4441,11 @@
       "choices": [
         {
           "id": "A",
-          "text": "Update the S3 role in AWS 1AM to allow read/write access from Amazon ECS, and then relaunch the container."
+          "text": "Update the S3 role in AWS IAM to allow read/write access from Amazon ECS, and then relaunch the container."
         },
         {
           "id": "B",
-          "text": "Create an 1AM role with S3 permissions, and then specify that role as the taskRoleArn in the task definition."
+          "text": "Create an IAM role with S3 permissions, and then specify that role as the taskRoleArn in the task definition."
         },
         {
           "id": "C",
@@ -4457,14 +4453,14 @@
         },
         {
           "id": "D",
-          "text": "Create an 1AM user with S3 permissions, and then relaunch the Amazon EC2 instances for the ECS cluster while logged in as this account."
+          "text": "Create an IAM user with S3 permissions, and then relaunch the Amazon EC2 instances for the ECS cluster while logged in as this account."
         }
       ]
     },
     {
       "id": "163",
-      "question": "A solutions architect has configured the following 1AM policy. Which action will be allowed by the policy?",
-      "image": "",
+      "question": "A solutions architect has configured the following IAM policy. Which action will be allowed by the policy?",
+      "image": "img/question-163.png",
       "reference": "",
       "correct": [
         "C"
@@ -5371,7 +5367,7 @@
         },
         {
           "id": "D",
-          "text": "Create 1AM users for each of the departments and configure a read-only IAM policy"
+          "text": "Create IAM users for each of the departments and configure a read-only IAM policy"
         }
       ]
     },
@@ -5405,7 +5401,7 @@
     {
       "id": "198",
       "question": "A company has implemented one of its microservices on AWS Lambda that accesses an Amazon DynamoDB table named Books. A solutions architect is design an IAM policy to be attached to the Lambda function's IAM role, giving it access to put, update, and delete items in the Books table. the IAM policy must prevent function from performing any other actions on the Books table or any other. Which IAM policy would fulfill these needs and provide the LEAST privileged access?",
-      "image": "",
+      "image": "img/question-198.png",
       "reference": "",
       "correct": [
         "C"
@@ -5413,19 +5409,19 @@
       "choices": [
         {
           "id": "A",
-          "text": "<image>"
+          "text": "A"
         },
         {
           "id": "B",
-          "text": "<image>"
+          "text": "B"
         },
         {
           "id": "C",
-          "text": "<image>"
+          "text": "C"
         },
         {
           "id": "D",
-          "text": "<image>"
+          "text": "D"
         }
       ]
     },
