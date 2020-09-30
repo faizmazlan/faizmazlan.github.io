@@ -28,7 +28,7 @@ foreach ($Quiz in $Quizes) {
         id = $Quiz.QuestionNum
         question = $Quiz.Question
         image = $Quiz.ImageUrl
-        reference = $Quiz.Explaination
+        explaination = $Quiz.Explaination
         correct = $QuizAnswer
         choices = $ChoiceArray
     }
