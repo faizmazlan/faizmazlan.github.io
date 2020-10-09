@@ -25,6 +25,7 @@
     .explaination { margin:10px 5px 0 5px; }
     .explaination h4 { margin: 5px 0px 5px 0px; text-align:right; color:#999; }
     .explaination p { padding: 5px 7px 5px 7px; border: 1px solid #ccc; }
+    .text-break{word-break:break-word!important;overflow-wrap:break-word!important}
     img.question-image { width:100%; height:auto; display:block; max-width:80%; margin:10px auto; border:1px solid #ccc; }
     input[type=number] {
       width: 50px;
@@ -22778,7 +22779,7 @@ jQuery(document).ready(function ($) {
       if (QuizQuestions[QuizCurrentQuestions].hasOwnProperty('explaination') && QuizQuestions[QuizCurrentQuestions]['explaination'] != "") {
         $(document.createElement('div')).addClass('col explaination').attr('id', 'QuizExplainationCol').appendTo('#QuizExplainationBlock');
         $(document.createElement('h4')).text('Explaination').appendTo('#QuizExplainationCol');
-        $(document.createElement('p')).text(QuizQuestions[QuizCurrentQuestions]['explaination']).appendTo('#QuizExplainationCol');
+        $(document.createElement('p')).addClass('text-break').text(QuizQuestions[QuizCurrentQuestions]['explaination']).appendTo('#QuizExplainationCol');
       }
     }
 
@@ -23063,17 +23064,17 @@ jQuery(document).ready(function ($) {
 </head>
 
 <body class="bg-light">
-    <div class="container">
-        <div id="QuizHeader" class="py-4 text-center"></div>
-            <div class="row">
-                <div id="QuizContent" class="col">
-                  <div class="jumbotron" id="QuizStartBlock">
-                </div>
-            </div>
+  <div class="container">
+    <div id="QuizHeader" class="py-4 text-center"></div>
+    <div class="row">
+      <div id="QuizContent" class="col">
+        <div class="jumbotron" id="QuizStartBlock"></div>
+      </div>
     </div>
-    <div class="footer py-4 text-center">
-        <p class="text-secondary">© 2020 - faizmazlan.github.io</p>
-    </div>
+  </div>
+  <div class="footer py-4 text-center">
+    <p class="text-secondary">© 2020 - faizmazlan.github.io</p>
+  </div>
 
 </body>
 </html>
