@@ -22780,8 +22780,8 @@ var
       }
   }
 
-  var QuizQuestions = $.ajax(QuizApi).done(function (response) { return response; });
-  console.log(QuizQuestions.responseJSON);
+  var QuizApiResponse = $.ajax(QuizApi).done(function (response) { return response; });
+  console.log(QuizApiResponse['responseJSON']);
 
   /*
   $.ajax(QuizApi).done(function (response) {
