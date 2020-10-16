@@ -22781,7 +22781,7 @@ var
 }
                   
 $.ajax(settings).done(function (response) {
-    var QuizQuestions = response;
+    var QuizQuestions = JSON.stringify(response);
     console.log(QuizQuestions);
 });
 
