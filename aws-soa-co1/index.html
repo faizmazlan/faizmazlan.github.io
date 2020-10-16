@@ -22753,7 +22753,7 @@ var Quiz = {
 var QuizCode = Quiz["QuizCode"];
 var QuizTitle = Quiz["QuizTitle"];
 var QuizDescription = Quiz["QuizDescription"];
-var QuizQuestions = Quiz['QuizQuestions'];
+// var QuizQuestions = Quiz['QuizQuestions'];
 
 </script>
 <!-- JS quiz variables - end -->
@@ -22768,22 +22768,26 @@ var
     QuizScorePercent = 0 ,
 	  QuizSubmit = true ,
     QuizPicked ;
-    var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": 'https://inexamlab-9bb5.restdb.io/rest/aws-soa-c-01',
-    "method": "GET",
-    "headers": {
-      "content-type": "application/json",
-      "x-apikey": "5f894e3b5799e648a5a8f09a",
-      "cache-control": "no-cache"
-    }
-}
-                  
-$.ajax(settings).done(function (response) {
-    //QuizQuestions = JSON.stringify(response);
-    console.log(response[0]);
-});
+    QuizApi = {
+      "async": true,
+      "crossDomain": true,
+      "url": 'https://inexamlab-9bb5.restdb.io/rest/aws-soa-c-01',
+      "method": "GET",
+      "headers": {
+        "content-type": "application/json",
+        "x-apikey": "5f894e3b5799e648a5a8f09a",
+        "cache-control": "no-cache"
+      }
+  }
+
+  var QuizQuestions = $.ajax(QuizApi).done(function (response) { return response; });
+
+  /*
+  $.ajax(QuizApi).done(function (response) {
+      return response;
+      console.log(QuizQuestions[0]);
+  });
+  */                  
 
 
 jQuery(document).ready(function ($) {
