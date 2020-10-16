@@ -22753,7 +22753,7 @@ var Quiz = {
 var QuizCode = Quiz["QuizCode"];
 var QuizTitle = Quiz["QuizTitle"];
 var QuizDescription = Quiz["QuizDescription"];
-//var QuizQuestions = Quiz['QuizQuestions'];
+var QuizQuestions = Quiz['QuizQuestions'];
 
 </script>
 <!-- JS quiz variables - end -->
@@ -22781,8 +22781,8 @@ var
 }
                   
 $.ajax(settings).done(function (response) {
-    var QuizQuestions = JSON.stringify(response);
-    console.log(QuizQuestions);
+    //QuizQuestions = JSON.stringify(response);
+    console.log(response[0]);
 });
 
 
