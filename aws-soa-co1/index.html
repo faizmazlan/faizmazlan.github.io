@@ -45,7 +45,10 @@
     .darkmode--activated .jumbotron { background-color: #3b3b3b; }
   </style>
 
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<!--
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+-->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
 <script>
@@ -22745,6 +22748,8 @@ var Quiz = {
 }
 ;
 
+
+
 var QuizCode = Quiz["QuizCode"];
 var QuizTitle = Quiz["QuizTitle"];
 var QuizDescription = Quiz["QuizDescription"];
@@ -22763,8 +22768,25 @@ var
     QuizScorePercent = 0 ,
 	  QuizSubmit = true ,
     QuizPicked ;
+    var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": 'https://inexamlab-9bb5.restdb.io/rest/aws-soa-c-01?q={"QuestionNum":1}',
+    "method": "GET",
+    "headers": {
+      "content-type": "application/json",
+      "x-apikey": "5d23cc7c4a484557c833be500bae863c9f058",
+      "cache-control": "no-cache"
+    }
+}
+                  
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+
 
 jQuery(document).ready(function ($) {
+
 
     function htmlEncode(value) {
         return $(document.createElement('div')).text(value).html();
