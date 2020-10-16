@@ -22753,7 +22753,7 @@ var Quiz = {
 var QuizCode = Quiz["QuizCode"];
 var QuizTitle = Quiz["QuizTitle"];
 var QuizDescription = Quiz["QuizDescription"];
-var QuizQuestions = Quiz['QuizQuestions'];
+//var QuizQuestions = Quiz['QuizQuestions'];
 
 </script>
 <!-- JS quiz variables - end -->
@@ -22771,7 +22771,7 @@ var
     var settings = {
     "async": true,
     "crossDomain": true,
-    "url": 'https://inexamlab-9bb5.restdb.io/rest/aws-soa-c-01?q={"QuestionNum":1}',
+    "url": 'https://inexamlab-9bb5.restdb.io/rest/aws-soa-c-01',
     "method": "GET",
     "headers": {
       "content-type": "application/json",
@@ -22782,6 +22782,7 @@ var
                   
 $.ajax(settings).done(function (response) {
     console.log(response);
+    var QuizQuestions = response
 });
 
 
