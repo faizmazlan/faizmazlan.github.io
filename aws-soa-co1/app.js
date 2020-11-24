@@ -26,8 +26,7 @@ var
     QuizScore = [],
     QuizScoreSum = 0,
     QuizScorePercent = 0,
-    QuizApiUrl = "https://inexamlab-9bb5.restdb.io/rest/aws-soa-c-01"
-    //QuizApiUrl = "https://inexamlab-9bb5.restdb.io/rest/aws-soa-c-01?max=5&sort=QuestionNum"
+    QuizApiUrl = "https://inexamlab-9bb5.restdb.io/rest/aws-soa-co-1-pre"
 
 $(document).ready(function () {
     $.ajaxPrefilter(function (options) {
