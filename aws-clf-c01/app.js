@@ -26,9 +26,12 @@ var
     QuizScore = [],
     QuizScoreSum = 0,
     QuizScorePercent = 0,
-    QuizApiUrl = "https://inexamlab-9bb5.restdb.io/rest/aws-clf-c-o1"
+    // QuizApiUrl = "https://inexamlab-9bb5.restdb.io/rest/aws-clf-c-o1"
+    //QuizApiUrl = "https://faizmazlan.github.io/aws-clf-c01/AWS-CLF-C01_QuestionsBank.json"
+    QuizApiUrl = "AWS-CLF-C01_QuestionsBank.json"
 
 $(document).ready(function () {
+    /*
     $.ajaxPrefilter(function (options) {
         if (!options.beforeSend) {
             options.beforeSend = function (xhr) {
@@ -36,6 +39,7 @@ $(document).ready(function () {
             }
         }
     });
+    */
 
     $.getJSON(QuizApiUrl, function (QuizQuestions) {
         var
