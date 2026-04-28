@@ -1,0 +1,279 @@
+/* ==========================================================================
+   Animations — Keyframes & Entrance Animations
+   Premium SPA Résumé Website
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Hero Background Orb Animations
+   Slow drifting + pulsing for depth. GPU-accelerated (transform + opacity).
+   -------------------------------------------------------------------------- */
+@keyframes orb-drift-1 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.6;
+  }
+  25% {
+    transform: translate(60px, 40px) scale(1.1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(30px, 80px) scale(0.95);
+    opacity: 0.5;
+  }
+  75% {
+    transform: translate(-40px, 30px) scale(1.05);
+    opacity: 0.7;
+  }
+}
+
+@keyframes orb-drift-2 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.5;
+  }
+  25% {
+    transform: translate(-50px, -30px) scale(1.08);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate(-80px, 20px) scale(1);
+    opacity: 0.6;
+  }
+  75% {
+    transform: translate(30px, -50px) scale(1.12);
+    opacity: 0.4;
+  }
+}
+
+@keyframes orb-drift-3 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.5;
+  }
+  33% {
+    transform: translate(-40px, 50px) scale(1.15);
+    opacity: 0.7;
+  }
+  66% {
+    transform: translate(50px, -30px) scale(0.9);
+    opacity: 0.4;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Scroll Indicator Bounce
+   -------------------------------------------------------------------------- */
+@keyframes scroll-bounce {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 0.5;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Hero Entrance Animations — Fade-in + Slide-up
+   Uses transform + opacity only for GPU acceleration.
+   -------------------------------------------------------------------------- */
+
+/* Initial hidden state for hero elements */
+.animate-hero-heading,
+.animate-hero-subtitle,
+.animate-hero-tagline,
+.animate-hero-download {
+  opacity: 0;
+  transform: translateY(30px);
+  animation-fill-mode: forwards;
+  animation-duration: 800ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  animation-name: hero-entrance;
+}
+
+/* Staggered delays */
+.animate-hero-heading {
+  animation-delay: 0ms;
+}
+
+.animate-hero-subtitle {
+  animation-delay: 200ms;
+}
+
+.animate-hero-tagline {
+  animation-delay: 400ms;
+}
+
+.animate-hero-download {
+  animation-delay: 600ms;
+}
+
+@keyframes hero-entrance {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll indicator fades in after text */
+.hero__scroll-indicator {
+  opacity: 0;
+  animation: hero-entrance-centered 800ms cubic-bezier(0.16, 1, 0.3, 1) 700ms forwards;
+}
+
+@keyframes hero-entrance-centered {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Reduced Motion — Respect user preference
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .animate-hero-heading,
+  .animate-hero-subtitle,
+  .animate-hero-tagline,
+  .animate-hero-download,
+  .hero__scroll-indicator {
+    animation: none;
+    opacity: 1;
+  }
+
+  .animate-hero-heading,
+  .animate-hero-subtitle,
+  .animate-hero-tagline,
+  .animate-hero-download {
+    transform: none;
+  }
+
+  .hero__scroll-indicator {
+    transform: translateX(-50%);
+  }
+
+  .hero__orb {
+    animation: none;
+  }
+
+  .hero__scroll-chevron {
+    animation: none;
+  }
+}
+
+/* ==========================================================================
+   Scroll Animation System — Classes toggled by IntersectionObserver
+   Uses CSS classes only; no inline style manipulation.
+   GPU-accelerated: transform + opacity only.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Hidden States — Applied by JS on init, removed when element enters viewport
+   Each animation type has its own initial transform.
+   -------------------------------------------------------------------------- */
+
+/* Fade Up: translateY(30px) + opacity 0 */
+[data-animate="fade-up"].animate-hidden {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* Fade In: opacity 0 only */
+[data-animate="fade-in"].animate-hidden {
+  opacity: 0;
+}
+
+/* Slide Left: translateX(-40px) + opacity 0 */
+[data-animate="slide-left"].animate-hidden {
+  opacity: 0;
+  transform: translateX(-40px);
+}
+
+/* Slide Right: translateX(40px) + opacity 0 */
+[data-animate="slide-right"].animate-hidden {
+  opacity: 0;
+  transform: translateX(40px);
+}
+
+/* Scale Up: scale(0.95) + opacity 0 */
+[data-animate="scale-up"].animate-hidden {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+/* Draw Line: scaleY(0) for timeline connector */
+[data-animate="draw-line"].animate-hidden {
+  transform: scaleY(0);
+  transform-origin: top;
+}
+
+/* --------------------------------------------------------------------------
+   Visible States — Applied when element enters viewport
+   Transitions bring elements to their natural position.
+   -------------------------------------------------------------------------- */
+[data-animate].animate-visible {
+  opacity: 1;
+  transform: translateY(0) translateX(0) scale(1);
+}
+
+[data-animate="draw-line"].animate-visible {
+  transform: scaleY(1);
+  transform-origin: top;
+}
+
+/* --------------------------------------------------------------------------
+   Transition Definitions — Per animation type
+   Uses design tokens for easing and duration.
+   -------------------------------------------------------------------------- */
+[data-animate="fade-up"] {
+  transition: opacity var(--duration-slow) var(--ease-out-expo),
+              transform var(--duration-slow) var(--ease-out-expo);
+}
+
+[data-animate="fade-in"] {
+  transition: opacity var(--duration-slow) var(--ease-out-expo);
+}
+
+[data-animate="slide-left"] {
+  transition: opacity var(--duration-slow) var(--ease-out-expo),
+              transform var(--duration-slow) var(--ease-out-expo);
+}
+
+[data-animate="slide-right"] {
+  transition: opacity var(--duration-slow) var(--ease-out-expo),
+              transform var(--duration-slow) var(--ease-out-expo);
+}
+
+[data-animate="scale-up"] {
+  transition: opacity var(--duration-slow) var(--ease-out-expo),
+              transform var(--duration-slow) var(--ease-out-expo);
+}
+
+[data-animate="draw-line"] {
+  transition: transform var(--duration-slower) var(--ease-out-expo);
+}
+
+/* --------------------------------------------------------------------------
+   Reduced Motion — Scroll Animations
+   If user prefers reduced motion, skip hidden state entirely so content
+   is immediately visible. No transitions needed.
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  [data-animate].animate-hidden {
+    opacity: 1;
+    transform: none;
+  }
+
+  [data-animate] {
+    transition: none;
+  }
+}

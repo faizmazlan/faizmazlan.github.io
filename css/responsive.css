@@ -1,0 +1,414 @@
+/* ==========================================================================
+   Responsive Overrides & Polish
+   Premium SPA Résumé Website
+   
+   Consolidates additional responsive rules across all breakpoints.
+   Many section-specific responsive styles live in sections.css and
+   components.css — this file handles global overrides, touch-target
+   sizing, overflow prevention, and any gaps not covered elsewhere.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Global: Prevent horizontal overflow on all viewports
+   -------------------------------------------------------------------------- */
+html,
+body {
+  overflow-x: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   Touch Target Minimum — 44×44px for all interactive elements
+   -------------------------------------------------------------------------- */
+.footer__back-to-top {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.footer__social-link {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.nav__theme-toggle {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+/* ==========================================================================
+   Wide Desktop — max-width: 1280px
+   ========================================================================== */
+@media (max-width: 1280px) {
+  .hero__orb--1 {
+    width: 480px;
+    height: 480px;
+  }
+
+  .hero__orb--2 {
+    width: 400px;
+    height: 400px;
+  }
+
+  .hero__orb--3 {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+/* ==========================================================================
+   Desktop — max-width: 1024px
+   ========================================================================== */
+@media (max-width: 1024px) {
+  /* Container padding reduces */
+  .container {
+    padding-left: var(--space-lg);
+    padding-right: var(--space-lg);
+  }
+
+  /* Nav padding matches container */
+  .nav {
+    padding: 0 var(--space-lg);
+  }
+
+  /* Timeline max-width relaxes */
+  .timeline {
+    max-width: 100%;
+  }
+
+  /* Hero orbs scale down further */
+  .hero__orb--1 {
+    width: 380px;
+    height: 380px;
+  }
+
+  .hero__orb--2 {
+    width: 320px;
+    height: 320px;
+  }
+
+  .hero__orb--3 {
+    width: 220px;
+    height: 220px;
+  }
+
+  /* About section gap tightens */
+  .about__content {
+    gap: var(--space-xl);
+  }
+
+  /* Certifications carousel: 2 slides at tablet-desktop */
+  .certifications__carousel {
+    --slides-per-view: 2;
+  }
+}
+
+/* ==========================================================================
+   Tablet — max-width: 768px
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* Container padding reduces for mobile */
+  .container {
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+  }
+
+  /* Nav padding matches */
+  .nav {
+    padding: 0 var(--space-md);
+  }
+
+  /* Hero content padding */
+  .hero__content {
+    padding: 0 var(--space-md);
+  }
+
+  /* Hero orbs scale down for tablet */
+  .hero__orb--1 {
+    width: 300px;
+    height: 300px;
+  }
+
+  .hero__orb--2 {
+    width: 250px;
+    height: 250px;
+  }
+
+  .hero__orb--3 {
+    width: 180px;
+    height: 180px;
+  }
+
+  /* Section headings: reduce bottom margin */
+  .about__heading,
+  .experience__heading,
+  .skills__heading,
+  .projects__heading,
+  .education__heading,
+  .certifications__heading,
+  .contact__heading {
+    margin-bottom: var(--space-2xl);
+  }
+
+  /* Timeline cards: reduce padding */
+  .timeline__card {
+    padding: var(--space-lg);
+  }
+
+  /* Skills card: reduce padding */
+  .skills__card {
+    padding: var(--space-lg);
+  }
+
+  /* Projects card: reduce padding */
+  .projects__card {
+    padding: var(--space-lg);
+  }
+
+  /* Certifications carousel: 1 slide on tablet/mobile */
+  .certifications__carousel {
+    --slides-per-view: 1;
+  }
+
+  /* Certifications arrows: move inside carousel on smaller screens */
+  .certifications__arrow--prev {
+    left: var(--space-sm);
+  }
+
+  .certifications__arrow--next {
+    right: var(--space-sm);
+  }
+
+  /* Certifications badge: reduce padding */
+  .certifications__badge {
+    padding: var(--space-md) var(--space-lg);
+  }
+
+  /* Skills item: stack pill and dots vertically on narrow cards */
+  .skills__item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-xs);
+  }
+
+  /* Contact form: full-width submit */
+  .contact__submit {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Footer: stack vertically */
+  .footer__inner {
+    flex-direction: column;
+    gap: var(--space-md);
+    text-align: center;
+  }
+}
+
+/* ==========================================================================
+   Mobile — max-width: 480px
+   ========================================================================== */
+@media (max-width: 480px) {
+  /* Container padding */
+  .container {
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+  }
+
+  /* Nav padding matches */
+  .nav {
+    padding: 0 var(--space-md);
+  }
+
+  /* Hero: reduce minimum height for very small screens */
+  .hero {
+    min-height: 100svh;
+  }
+
+  .hero__content {
+    padding: 0 var(--space-md);
+  }
+
+  /* Hero orbs: minimal on small screens */
+  .hero__orb--1 {
+    width: 220px;
+    height: 220px;
+  }
+
+  .hero__orb--2 {
+    width: 180px;
+    height: 180px;
+  }
+
+  .hero__orb--3 {
+    width: 120px;
+    height: 120px;
+  }
+
+  /* About: avatar shrinks further */
+  .about__avatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  .about__initials {
+    font-size: 2.25rem;
+  }
+
+  /* About: stats gap tightens (already column from sections.css) */
+  .about__stats {
+    padding-top: var(--space-lg);
+  }
+
+  /* Timeline: tighter left offset */
+  .timeline__line {
+    left: var(--space-sm);
+  }
+
+  .timeline__item,
+  .timeline__item:nth-child(odd),
+  .timeline__item:nth-child(even) {
+    padding-left: calc(var(--space-sm) + var(--space-lg));
+  }
+
+  .timeline__node,
+  .timeline__item:nth-child(odd) .timeline__node,
+  .timeline__item:nth-child(even) .timeline__node {
+    left: calc(var(--space-sm) - 6px);
+  }
+
+  /* Timeline card: compact padding */
+  .timeline__card {
+    padding: var(--space-md);
+  }
+
+  /* Skills card: compact padding */
+  .skills__card {
+    padding: var(--space-md);
+  }
+
+  /* Projects card: compact padding */
+  .projects__card {
+    padding: var(--space-md);
+  }
+
+  /* Certifications arrows: tighter positioning on mobile */
+  .certifications__arrow {
+    min-width: 38px;
+    min-height: 38px;
+  }
+
+  .certifications__arrow--prev {
+    left: var(--space-xs);
+  }
+
+  .certifications__arrow--next {
+    right: var(--space-xs);
+  }
+
+  /* Certifications badge: compact padding */
+  .certifications__badge {
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  .certifications__badge-image-wrapper {
+    padding: 30px;
+  }
+
+  /* Education entry: compact padding */
+  .education__entry {
+    padding: var(--space-lg);
+  }
+
+  /* Contact: reduce spacing */
+  .contact__location {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .contact__form {
+    gap: var(--space-lg);
+  }
+
+  /* Social links: ensure adequate touch targets */
+  .contact__social {
+    gap: var(--space-md);
+  }
+
+  /* Mobile menu links: slightly smaller on very small screens */
+  .mobile-menu__link {
+    font-size: var(--font-size-h3);
+  }
+
+  .mobile-menu__links {
+    gap: var(--space-xl);
+  }
+}
+
+/* ==========================================================================
+   Mobile Menu Polish — Full-screen overlay enhancements
+   (Base styles in components.css; these are additional polish rules)
+   ========================================================================== */
+
+/* Ensure mobile menu covers the full viewport including safe areas */
+.mobile-menu {
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+/* Mobile menu close button is the hamburger (X state) — ensure it's above overlay */
+.nav__hamburger {
+  position: relative;
+  z-index: 1001;
+}
+
+/* ==========================================================================
+   Overflow & Text Truncation Safeguards
+   ========================================================================== */
+
+/* Prevent long words from causing horizontal overflow */
+.timeline__description,
+.timeline__highlights li,
+.about__bio,
+.timeline__role,
+.timeline__company,
+.education__institution,
+.education__degree,
+.skills__pill,
+.skills__card-desc,
+.projects__card-title,
+.projects__card-summary,
+.projects__highlights li,
+.certifications__badge-name {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* Ensure images and media never overflow their containers */
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ==========================================================================
+   Landscape Mobile — Short viewports
+   ========================================================================== */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero {
+    min-height: 100svh;
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-xl);
+  }
+
+  .hero__scroll-indicator {
+    bottom: var(--space-md);
+  }
+
+  /* Mobile menu: reduce link spacing in landscape */
+  .mobile-menu__links {
+    gap: var(--space-lg);
+  }
+
+  .mobile-menu__link {
+    font-size: var(--font-size-h3);
+  }
+}
